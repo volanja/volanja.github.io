@@ -38,7 +38,7 @@ params:
         subtitle: oss work occasionally.
         avatar:
             local: true
-            src: img/avatar.png
+            src: img/volanja.jpeg
 
     article:
         math: false
