@@ -90,7 +90,7 @@ Name:                DC0
   Datastores:        1
 ```
 
-```
+```json
 $ govc datacenter.info --json
 {
   "Datacenters": [
@@ -178,7 +178,7 @@ Name:        Datacenters
   Children:  1
 ```
 
-```
+```json
 $ govc folder.info --json
 {
   "Folders": [
@@ -299,7 +299,7 @@ actionHistory        []types.ClusterActionHistory
 drsFault             []types.ClusterDrsFaults
 ```
 
-```
+```json
 $ govc find / -type c |xargs -n1 govc object.collect --json
 [
   {
@@ -640,7 +640,7 @@ Name:              DC0_C0_H0
   State:           connected
 ```
 
-```
+```json
 $ govc host.info --json --host=/DC0/host/DC0_C0/DC0_C0_H0
 {
   "HostSystems": [
@@ -7459,7 +7459,7 @@ Allow forged transmits:  Yes
 Allow MAC changes:       Yes
 ```
 
-```
+```json
 $ govc host.portgroup.info --json --host=/DC0/host/DC0_C0/DC0_C0_H0
 {
   "Portgroup": [
@@ -7658,7 +7658,7 @@ Ports:            0
 Ports Available:  0
 ```
 
-```
+```json
 $ govc host.vswitch.info --json --host=/DC0/host/DC0_C0/DC0_C0_H0
 {
   "Vswitch": [
@@ -7705,7 +7705,7 @@ VlanId:       0
 PortKey:      dvportgroup-13
 ```
 
-```
+```json
 $ govc dvs.portgroup.info --json /DC0/network/DVS0
 {
   "Port": [
@@ -7869,7 +7869,7 @@ Name                                     Type   Capacity  Model
 /vmfs/devices/disks/mpx.vmhba0:C0:T0:L0  disk   32.0GB    VMware Virtual S (local,ssd)
 ```
 
-```
+```json
 $ govc host.storage.info --json --host=/DC0/host/DC0_C0/DC0_C0_H0
 {
   "Self": {
@@ -8234,7 +8234,7 @@ DC0_H0_VM0
 DC0_H0_VM1
 ```
 
-```
+```json
 $ govc datastore.ls --json
 [
   {
@@ -8289,7 +8289,7 @@ Name:        LocalDS_0
   Free:      162.7 GB
 ```
 
-```
+```json
 $ govc datastore.info --json
 {
   "Datastores": [
@@ -8415,7 +8415,9 @@ govc: ServerFaultCode: The object has already been deleted or has not been compl
 ```
 $ govc host.option.ls --host=/DC0/host/DC0_C0/DC0_C0_H0
 Config.HostAgent.log.level:  info
+```
 
+```json
 $ govc host.option.ls --json --host=/DC0/host/DC0_C0/DC0_C0_H0
 [
   {
@@ -8445,7 +8447,7 @@ event.maxAgeEnabled:                       true
 vcsim.server.url:                          https://127.0.0.1:8989/sdk
 ```
 
-```
+```json
 $ govc option.ls --json
 [
   {
@@ -8523,7 +8525,7 @@ Name:           DC0_H0_VM0
   Host:         DC0_H0
 ```
 
-```
+```json
 $ govc vm.info --json /DC0/vm/DC0_H0_VM0
 {
   "VirtualMachines": [
@@ -9480,7 +9482,7 @@ otherGuest64
 
 jsonありだとゲストOSの詳細が表示された。
 
-```
+```json
 $ govc vm.option.info --json -vm=/DC0/vm/DC0_H0_VM0
 {
   "Version": "vmx-13",
