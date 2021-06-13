@@ -1,7 +1,7 @@
 ---
 title: "govcでESXi 6.7u3から情報取得する。"
 date: 2021-06-13T21:32:02+09:00
-draft: true
+draft: false
 categories:
   - VMware
 slug: vmw-govc-got-info-from-esxi67u3
