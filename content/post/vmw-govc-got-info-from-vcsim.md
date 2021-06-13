@@ -4,7 +4,7 @@ date: 2021-06-13T21:25:42+09:00
 draft: false
 categories:
   - VMware
-slug: result-vcsim
+slug: vmw-govc-got-info-from-vcsim
 tags:
   - govc
   - vcsim

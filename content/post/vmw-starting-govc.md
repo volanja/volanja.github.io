@@ -4,7 +4,7 @@ date: 2021-06-13T19:10:18+09:00
 draft: false
 categories:
   - VMware
-slug: starting-govc
+slug: vmw-starting-govc
 tags:
   - govc
   - govmomi
