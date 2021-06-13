@@ -5,6 +5,9 @@ draft: false
 categories:
   - VMware
 slug: result-vcsim
+tags:
+  - govc
+  - vcsim
 ---
 
 # 前提
