@@ -39,7 +39,7 @@ ESXi 6.7u3をVirtual Boxにて以下の通り構築した。
     + PortGoup: VM Network2
     + OS is not install. Virtual Machine only.
 
-# コマンド実行メモ
+# コマンド実行結果
 ## 環境変数
 
 ```
