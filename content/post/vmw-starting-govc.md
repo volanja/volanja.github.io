@@ -48,7 +48,7 @@ export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915
 ```
 
 # govcのTips
-
+## サーバ証明書の検証エラー
 govc実行時に何も指定しないとサーバ証明書の検証エラーが出る。
 
 ```
