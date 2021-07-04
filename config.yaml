@@ -130,5 +130,9 @@ related:
           weight: 200
 
 markup:
+    tableOfContents:
+        startLevel: 1
+        endLevel: 3
+        ordered: true
     highlight:
         noClasses: false
