@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conftest on Volanja Pages</title><link>https://volanja.github.io/categories/conftest/</link><description>Recent content in Conftest on Volanja Pages</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Jul 2021 18:20:00 +0900</lastBuildDate><atom:link href="https://volanja.github.io/categories/conftest/index.xml" rel="self" type="application/rss+xml"/><item><title>Conftestでのtraceによるデバッグ</title><link>https://volanja.github.io/p/conftest-debug-trace/</link><pubDate>Sun, 25 Jul 2021 18:20:00 +0900</pubDate><guid>https://volanja.github.io/p/conftest-debug-trace/</guid><description>最近、Conftestを勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。
+Conftestを簡単に説明すると、ConftestとはYAMLやJSONなどの構造化データに対するテストを作成するツールである。
+例えばk8sの設定ファイルのテストなどに使われていて、テストはOpenPolicyAgent(OPA)のRego言語を用いて記述する。
+(Regoは&amp;quot;ray-go&amp;quot;と発音するので、日本語では&amp;quot;レイゴー&amp;quot;)
+trace の使い方 ConftestのRego言語ではデバッグのためにtraceをコード内に埋め込み、表示させることができる。
+OpenPolicyAgent - Policy Reference - Built-in Functions - Debugging
+コード traceで文字列を表示させる場合は引数として文字列を渡す。
+trace(&amp;#34;Hello&amp;#34;) 変数を埋め込みたい場合はsprintfを使う。
+trace(sprintf(&amp;#34;foo: %v&amp;#34;, [input.foo])) sprintfの第二引数には変数を指定できるが、変数には[]が必要である。
+(変数に[]をつけない場合の動作は後述。)
+実行方法 traceを表示するにはconftest testやconftest verifyに--traceを追加して実行する。
+traceの注意点 おさらい traceの注意点の前にRego言語の構文と名前についておさらいする。
+Regoの構文では、ルール(Rules)のbodyに式(expression)を置く。
+式は結果がtrueになるように記載し、全ての式がtrueの場合はルールが成功する。 次のように式が２行ある場合は論理積(Logical AND)として処理されるので、
+2つの式の結果がtrueであれば、ルールは成功となる。 逆に式の結果のどちらかがfalseであれば、ルールは失敗となるし、
+式の結果がfalseだった時点でルールの処理が中断され、falseだった式以降は処理されない。 deny[msg] { #ルール(Rules)のhead #ルール(Rules)のbody input.foo == &amp;#34;one&amp;#34; #式(expression) input.bar == &amp;#34;second&amp;#34; #式(expression) msg := &amp;#34;Output trace message.&amp;#34; #変数(variables) } 注意点 OPAのドキュメントでは明確に書かれていないように見えるが、
+traceは式(expression)の1つであるため、traceを表示するには次の注意点がある。
+traceより前の式(expression)の結果で、traceの出力が変わる。
+例えば、traceより前の式の結果がtrue なら、式のあとのtraceは表示される。
+一方で、traceより前の式の結果がfalseなら、式のあとのtraceは表示されない。
+これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。 trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。</description></item></channel></rss>

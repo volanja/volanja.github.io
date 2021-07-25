@@ -1,0 +1,110 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="VMware vcsimとは Go言語で書かれたvSphere Simulator
+https://github.com/vmware/govmomi/blob/master/vcsim/README.md
+VMware vSphere APIのためのGo言語ライブラリであるgovmomiに含まれる。
+そのほかにgovmomiは以下のソフトウェアを含む。
+ govc
+Go言語で書かれたAPI Client  利用用途  govcのテスト用シミュレーター Ansible moduleのテスト用シミュレーター など  執筆時点の環境 $ vcsim version Build Version: 0.25.0 Build Commit: bb0307eb Build Date: 2021-04-16T16:00:59Z vcsimの起動 デフォルト デフォルトではデータセンター1個、ホスト3台、仮想マシン4台の環境を構築する。
+$ vcsim export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915 ESXi 1台のみ -esxを追加することでESXi 1台のみも構築できる。
+$ vcsim -esx export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917 govcからのアクセス vcsim起動後に表示される次のコマンドを実行する。
+export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917 詳細はStarting govcを参照のこと。
+参考 vcsim help $ vcsim --help Usage of /Users/volanja/local/go/bin/vcsim: -E string Output vcsim variables to the given fifo or stdout (default &amp;quot;-&amp;quot;) -api-version string API version (default &amp;quot;6."><title>Starting vcsim</title><link rel=canonical href=https://volanja.github.io/p/vmw-starting-vcsim/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Starting vcsim"><meta property="og:description" content="VMware vcsimとは Go言語で書かれたvSphere Simulator
+https://github.com/vmware/govmomi/blob/master/vcsim/README.md
+VMware vSphere APIのためのGo言語ライブラリであるgovmomiに含まれる。
+そのほかにgovmomiは以下のソフトウェアを含む。
+ govc
+Go言語で書かれたAPI Client  利用用途  govcのテスト用シミュレーター Ansible moduleのテスト用シミュレーター など  執筆時点の環境 $ vcsim version Build Version: 0.25.0 Build Commit: bb0307eb Build Date: 2021-04-16T16:00:59Z vcsimの起動 デフォルト デフォルトではデータセンター1個、ホスト3台、仮想マシン4台の環境を構築する。
+$ vcsim export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915 ESXi 1台のみ -esxを追加することでESXi 1台のみも構築できる。
+$ vcsim -esx export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917 govcからのアクセス vcsim起動後に表示される次のコマンドを実行する。
+export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917 詳細はStarting govcを参照のこと。
+参考 vcsim help $ vcsim --help Usage of /Users/volanja/local/go/bin/vcsim: -E string Output vcsim variables to the given fifo or stdout (default &amp;quot;-&amp;quot;) -api-version string API version (default &amp;quot;6."><meta property="og:url" content="https://volanja.github.io/p/vmw-starting-vcsim/"><meta property="og:site_name" content="Volanja Pages"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="govc"><meta property="article:tag" content="govmomi"><meta property="article:tag" content="vcsim"><meta property="article:published_time" content="2021-06-13T19:10:18+09:00"><meta property="article:modified_time" content="2021-06-13T19:10:18+09:00"><meta name=twitter:site content="@volanja"><meta name=twitter:creator content="@volanja"><meta name=twitter:title content="Starting vcsim"><meta name=twitter:description content="VMware vcsimとは Go言語で書かれたvSphere Simulator
+https://github.com/vmware/govmomi/blob/master/vcsim/README.md
+VMware vSphere APIのためのGo言語ライブラリであるgovmomiに含まれる。
+そのほかにgovmomiは以下のソフトウェアを含む。
+ govc
+Go言語で書かれたAPI Client  利用用途  govcのテスト用シミュレーター Ansible moduleのテスト用シミュレーター など  執筆時点の環境 $ vcsim version Build Version: 0.25.0 Build Commit: bb0307eb Build Date: 2021-04-16T16:00:59Z vcsimの起動 デフォルト デフォルトではデータセンター1個、ホスト3台、仮想マシン4台の環境を構築する。
+$ vcsim export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915 ESXi 1台のみ -esxを追加することでESXi 1台のみも構築できる。
+$ vcsim -esx export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917 govcからのアクセス vcsim起動後に表示される次のコマンドを実行する。
+export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917 詳細はStarting govcを参照のこと。
+参考 vcsim help $ vcsim --help Usage of /Users/volanja/local/go/bin/vcsim: -E string Output vcsim variables to the given fifo or stdout (default &amp;quot;-&amp;quot;) -api-version string API version (default &amp;quot;6."></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"light")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
+extended"><div id=article-toolbar><a href=https://volanja.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/vmware/>VMware</a></header><h2 class=article-title><a href=/p/vmw-starting-vcsim/>Starting vcsim</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Jun 13, 2021</time></footer></div></header><section class=article-content><h1 id=vmware-vcsimとは>VMware vcsimとは</h1><p>Go言語で書かれたvSphere Simulator<br><a href=https://github.com/vmware/govmomi/blob/master/vcsim/README.md>https://github.com/vmware/govmomi/blob/master/vcsim/README.md</a></p><p>VMware vSphere APIのためのGo言語ライブラリである<a class=link href=https://github.com/vmware/govmomi target=_blank rel=noopener>govmomi</a>に含まれる。<br>そのほかにgovmomiは以下のソフトウェアを含む。</p><ul><li><a class=link href=https://github.com/vmware/govmomi/blob/master/govc/README.md target=_blank rel=noopener>govc</a><br>Go言語で書かれたAPI Client</li></ul><h1 id=利用用途>利用用途</h1><ul><li>govcのテスト用シミュレーター</li><li>Ansible moduleのテスト用シミュレーター
+など</li></ul><h1 id=執筆時点の環境>執筆時点の環境</h1><pre><code class=language-console data-lang=console>$ vcsim version
+Build Version: 0.25.0
+Build Commit: bb0307eb
+Build Date: 2021-04-16T16:00:59Z
+</code></pre><h1 id=vcsimの起動>vcsimの起動</h1><h2 id=デフォルト>デフォルト</h2><p>デフォルトではデータセンター1個、ホスト3台、仮想マシン4台の環境を構築する。</p><pre><code>$ vcsim
+export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915
+</code></pre><h2 id=esxi-1台のみ>ESXi 1台のみ</h2><p><code>-esx</code>を追加することでESXi 1台のみも構築できる。</p><pre><code>$ vcsim -esx
+export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917
+</code></pre><h1 id=govcからのアクセス>govcからのアクセス</h1><p>vcsim起動後に表示される次のコマンドを実行する。</p><pre><code>export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917
+</code></pre><p>詳細は<a class=link href=../starting-govc>Starting govc</a>を参照のこと。</p><h1 id=参考>参考</h1><h2 id=vcsim-help>vcsim help</h2><pre><code>$ vcsim --help
+Usage of /Users/volanja/local/go/bin/vcsim:
+  -E string
+    	Output vcsim variables to the given fifo or stdout (default &quot;-&quot;)
+  -api-version string
+    	API version (default &quot;6.5&quot;)
+  -app int
+    	Number of virtual apps per compute resource
+  -autostart
+    	Autostart model created VMs (default true)
+  -cluster int
+    	Number of clusters (default 1)
+  -dc int
+    	Number of datacenters (default 1)
+  -delay int
+    	Method response delay across all methods
+  -delay-jitter float
+    	Delay jitter coefficient of variation (tip: 0.5 is a good starting value)
+  -ds int
+    	Number of local datastores (default 1)
+  -esx
+    	Simulate standalone ESX
+  -folder int
+    	Number of folders
+  -host int
+    	Number of hosts per cluster (default 3)
+  -l string
+    	Listen address for vcsim (default &quot;127.0.0.1:8989&quot;)
+  -load string
+    	Load model from directory
+  -method-delay string
+    	Delay per method on the form 'method1:delay1,method2:delay2...'
+  -nsx int
+    	Number of NSX backed opaque networks
+  -password string
+    	Login password for vcsim (any password allowed by default)
+  -pg int
+    	Number of port groups (default 1)
+  -pg-nsx int
+    	Number of NSX backed port groups
+  -pod int
+    	Number of storage pods per datacenter
+  -pool int
+    	Number of resource pools per compute resource
+  -standalone-host int
+    	Number of standalone hosts (default 1)
+  -stdinexit
+    	Press any key to exit
+  -tls
+    	Enable TLS (default true)
+  -tlscert string
+    	Path to TLS certificate file
+  -tlskey string
+    	Path to TLS key file
+  -trace
+    	Trace SOAP to -trace-file
+  -trace-file string
+    	Trace output file (defaults to stderr)
+  -tunnel int
+    	SDK tunnel port (default -1)
+  -username string
+    	Login username for vcsim (any username allowed by default)
+  -vm int
+    	Number of virtual machines per resource pool (default 2)
+</code></pre></section><footer class=article-footer><section class=article-tags><a href=/tags/govc/>govc</a>
+<a href=/tags/govmomi/>govmomi</a>
+<a href=/tags/vcsim/>vcsim</a></section></footer></article><aside class=related-contents--wrapper><h2 class=section-title>関連するコンテンツ</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/p/vmw-starting-govc/><div class=article-details><h2 class=article-title>Starting govc</h2></div></a></article><article><a href=/p/vmw-govc-got-info-from-vcsim/><div class=article-details><h2 class=article-title>govcでvcsimから情報取得する。</h2></div></a></article><article><a href=/p/vmw-govc-got-info-from-esxi67u3/><div class=article-details><h2 class=article-title>govcでESXi 6.7u3から情報取得する。</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2021 Volanja Pages</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.4.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#vmware-vcsimとは>VMware vcsimとは</a></li><li><a href=#利用用途>利用用途</a></li><li><a href=#執筆時点の環境>執筆時点の環境</a></li><li><a href=#vcsimの起動>vcsimの起動</a><ol><li><a href=#デフォルト>デフォルト</a></li><li><a href=#esxi-1台のみ>ESXi 1台のみ</a></li></ol></li><li><a href=#govcからのアクセス>govcからのアクセス</a></li><li><a href=#参考>参考</a><ol><li><a href=#vcsim-help>vcsim help</a></li></ol></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
