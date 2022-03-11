@@ -1,21 +1,274 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>govmomi on volanja Pages</title><link>https://volanja.github.io/tags/govmomi/</link><description>Recent content in govmomi on volanja Pages</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 13 Jun 2021 19:10:18 +0900</lastBuildDate><atom:link href="https://volanja.github.io/tags/govmomi/index.xml" rel="self" type="application/rss+xml"/><item><title>govcの始め方</title><link>https://volanja.github.io/p/vmw-starting-govc/</link><pubDate>Sun, 13 Jun 2021 19:10:18 +0900</pubDate><guid>https://volanja.github.io/p/vmw-starting-govc/</guid><description>VMware govcとは Go言語で書かれたAPI Client
-https://github.com/vmware/govmomi/blob/master/govc/README.md
-VMware vSphere APIのためのGo言語ライブラリであるgovmomiに含まれる。
-そのほかにgovmomiは以下のソフトウェアを含む。
-vcsim
-Go言語で書かれたvSphere Simulator 執筆時点の環境 $ govc version -l Build Version: 0.25.0 Build Commit: bb0307eb Build Date: 2021-04-16T16:00:59Z インストール govc - Installationを参照してインストールする。
-初期設定 govcの環境変数設定 govcからvCenterやESXi, vcsimにアクセスするには環境変数を設定する。
-$ govc env GOVC_USERNAME=root GOVC_PASSWORD=VMware1! GOVC_URL=192.168.100.120 例えばvcsimにアクセスするにはvcsim起動後に表示されるexportコマンドを実行して、環境変数を設定する。
-export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915 govcのTips サーバ証明書の検証エラー govc実行時に何も指定しないとサーバ証明書の検証エラーが出る。
-$ govc host.info /DC0/host/DC0_H0 govc: Post &amp;quot;https://127.0.0.1:8989/sdk&amp;quot;: x509: certificate signed by unknown authority -kをつけると検証をスキップする。
-$ govc host.info --help Usage: govc host.info [OPTIONS] Options: -k=false Skip verification of server certificate [GOVC_INSECURE] 毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。</description></item><item><title>vcsimの始め方</title><link>https://volanja.github.io/p/vmw-starting-vcsim/</link><pubDate>Sun, 13 Jun 2021 19:10:18 +0900</pubDate><guid>https://volanja.github.io/p/vmw-starting-vcsim/</guid><description>VMware vcsimとは Go言語で書かれたvSphere Simulator
-https://github.com/vmware/govmomi/blob/master/vcsim/README.md
-VMware vSphere APIのためのGo言語ライブラリであるgovmomiに含まれる。
-そのほかにgovmomiは以下のソフトウェアを含む。
-govc
-Go言語で書かれたAPI Client 利用用途 govcのテスト用シミュレーター Ansible moduleのテスト用シミュレーター など 執筆時点の環境 $ vcsim version Build Version: 0.25.0 Build Commit: bb0307eb Build Date: 2021-04-16T16:00:59Z インストール vcsim - Installationを参照してインストールする。
-vcsimの起動 デフォルト デフォルトではデータセンター1個、ホスト3台、仮想マシン4台の環境を構築する。
-$ vcsim export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915 ESXi 1台のみ -esxを追加することでESXi 1台のみも構築できる。
-$ vcsim -esx export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917 govcからのアクセス vcsim起動後に表示される次のコマンドを実行する。
-export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917 詳細はStarting govcを参照のこと。
-参考 vcsim help $ vcsim --help Usage of /Users/volanja/local/go/bin/vcsim: -E string Output vcsim variables to the given fifo or stdout (default &amp;quot;-&amp;quot;) -api-version string API version (default &amp;quot;6.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>govmomi on volanja Pages</title><link>https://volanja.github.io/tags/govmomi/</link><description>Recent content in govmomi on volanja Pages</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 13 Jun 2021 19:10:18 +0900</lastBuildDate><atom:link href="https://volanja.github.io/tags/govmomi/index.xml" rel="self" type="application/rss+xml"/><item><title>govcの始め方</title><link>https://volanja.github.io/p/vmw-starting-govc/</link><pubDate>Sun, 13 Jun 2021 19:10:18 +0900</pubDate><guid>https://volanja.github.io/p/vmw-starting-govc/</guid><description>&lt;h1 id="vmware-govcとは">VMware govcとは&lt;/h1>
+&lt;p>Go言語で書かれたAPI Client&lt;br>
+&lt;a class="link" href="https://github.com/vmware/govmomi/blob/master/govc/README.md" target="_blank" rel="noopener"
+>https://github.com/vmware/govmomi/blob/master/govc/README.md&lt;/a>&lt;/p>
+&lt;p>VMware vSphere APIのためのGo言語ライブラリである&lt;a class="link" href="https://github.com/vmware/govmomi" target="_blank" rel="noopener"
+>govmomi&lt;/a>に含まれる。&lt;br>
+そのほかにgovmomiは以下のソフトウェアを含む。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/vmware/govmomi/blob/master/vcsim/README.md" target="_blank" rel="noopener"
+>vcsim&lt;/a>&lt;br>
+Go言語で書かれたvSphere Simulator&lt;/li>
+&lt;/ul>
+&lt;h1 id="執筆時点の環境">執筆時点の環境&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> govc version -l
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Build Version: 0.25.0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Build Commit: bb0307eb
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Build Date: 2021-04-16T16:00:59Z
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="インストール">インストール&lt;/h1>
+&lt;p>&lt;a class="link" href="https://github.com/vmware/govmomi/blob/master/govc/README.md#installation" target="_blank" rel="noopener"
+>govc - Installation&lt;/a>を参照してインストールする。&lt;/p>
+&lt;h1 id="初期設定">初期設定&lt;/h1>
+&lt;h2 id="govcの環境変数設定">govcの環境変数設定&lt;/h2>
+&lt;p>govcからvCenterやESXi, vcsimにアクセスするには環境変数を設定する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ govc env
+GOVC_USERNAME=root
+GOVC_PASSWORD=VMware1!
+GOVC_URL=192.168.100.120
+&lt;/code>&lt;/pre>&lt;p>例えばvcsimにアクセスするにはvcsim起動後に表示されるexportコマンドを実行して、環境変数を設定する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915
+&lt;/code>&lt;/pre>&lt;h1 id="govcのtips">govcのTips&lt;/h1>
+&lt;h2 id="サーバ証明書の検証エラー">サーバ証明書の検証エラー&lt;/h2>
+&lt;p>govc実行時に何も指定しないとサーバ証明書の検証エラーが出る。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ govc host.info /DC0/host/DC0_H0
+govc: Post &amp;#34;https://127.0.0.1:8989/sdk&amp;#34;: x509: certificate signed by unknown authority
+&lt;/code>&lt;/pre>&lt;p>-kをつけると検証をスキップする。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ govc host.info --help
+Usage: govc host.info [OPTIONS]
+Options:
+-k=false Skip verification of server certificate [GOVC_INSECURE]
+&lt;/code>&lt;/pre>&lt;p>毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。&lt;br>
+(セキュリティ上はきちんと設定した方が良い。)&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ export GOVC_INSECURE=1
+&lt;/code>&lt;/pre>&lt;h2 id="govcの詳細表示">govcの詳細表示&lt;/h2>
+&lt;p>govcで取れる情報がすくない、、と思っても&lt;code>--json&lt;/code>を付けると詳細が出てくる。&lt;/p>
+&lt;h3 id="jsonなし">jsonなし&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> govc host.vswitch.info --host&lt;span class="o">=&lt;/span>/DC0/host/DC0_H0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Name: vSwitch0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Portgroup: VM Network
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Pnic:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">MTU: 0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Ports: 0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Ports Available: 0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="gp">$&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="jsonあり">jsonあり&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="err">$&lt;/span> &lt;span class="err">govc&lt;/span> &lt;span class="err">host.vswitch.info&lt;/span> &lt;span class="err">--json&lt;/span> &lt;span class="err">--host=/DC&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="err">/host/DC&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="err">_H&lt;/span>&lt;span class="mi">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Vswitch&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;vSwitch0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Key&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;NumPorts&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;NumPortsAvailable&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Mtu&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Portgroup&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;VM Network&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Pnic&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Spec&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;NumPorts&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Bridge&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Policy&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Mtu&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="参考">参考&lt;/h1>
+&lt;h2 id="govc---info">govc - info&lt;/h2>
+&lt;p>govcのinfo関連の表示オプションを抜粋&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ govc --help 2&amp;gt;&amp;amp;1 |grep info
+cluster.override.info
+cluster.rule.info
+datacenter.info
+datastore.cluster.info
+datastore.disk.info
+datastore.info
+device.info
+dvs.portgroup.info
+extension.info
+fields.info
+folder.info
+host.autostart.info
+host.cert.info
+host.date.info
+host.info
+host.portgroup.info
+host.storage.info
+host.vnic.info
+host.vswitch.info
+library.info
+library.subscriber.info
+metric.info
+metric.interval.info
+pool.info
+storage.policy.info
+tags.category.info
+tags.info
+vcsa.log.forwarding.info
+vm.info
+vm.option.info
+&lt;/code>&lt;/pre>&lt;h2 id="govc---find">govc - find&lt;/h2>
+&lt;p>pathを参照するコマンド。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ govc find --help
+Usage: govc find [OPTIONS] [ROOT] [KEY VAL]...
+Find managed objects.
+ROOT can be an inventory path or ManagedObjectReference.
+ROOT defaults to &amp;#39;.&amp;#39;, an alias for the root folder or DC if set.
+Optional KEY VAL pairs can be used to filter results against object instance properties.
+Use the govc &amp;#39;object.collect&amp;#39; command to view possible object property keys.
+The &amp;#39;-type&amp;#39; flag value can be a managed entity type or one of the following aliases:
+a VirtualApp
+c ClusterComputeResource
+d Datacenter
+f Folder
+g DistributedVirtualPortgroup
+h HostSystem
+m VirtualMachine
+n Network
+o OpaqueNetwork
+p ResourcePool
+r ComputeResource
+s Datastore
+w DistributedVirtualSwitch
+Examples:
+govc find
+govc find -l / # include object type in output
+govc find /dc1 -type c
+govc find vm -name my-vm-*
+govc find . -type n
+govc find -p /folder-a/dc-1/host/folder-b/cluster-a -type Datacenter # prints /folder-a/dc-1
+govc find . -type m -runtime.powerState poweredOn
+govc find . -type m -datastore $(govc find -i datastore -name vsanDatastore)
+govc find . -type s -summary.type vsan
+govc find . -type s -customValue *:prod # Key:Value
+govc find . -type h -hardware.cpuInfo.numCpuCores 16
+Options:
+-cert= Certificate [GOVC_CERTIFICATE]
+-dc= Datacenter [GOVC_DATACENTER]
+-debug=false Store debug logs [GOVC_DEBUG]
+-dump=false Enable Go output
+-i=false Print the managed object reference
+-json=false Enable JSON output
+-k=false Skip verification of server certificate [GOVC_INSECURE]
+-key= Private key [GOVC_PRIVATE_KEY]
+-l=false Long listing format
+-maxdepth=-1 Max depth
+-name=* Resource name
+-p=false Find parent objects
+-persist-session=true Persist session to disk [GOVC_PERSIST_SESSION]
+-tls-ca-certs= TLS CA certificates file [GOVC_TLS_CA_CERTS]
+-tls-known-hosts= TLS known hosts file [GOVC_TLS_KNOWN_HOSTS]
+-trace=false Write SOAP/REST traffic to stderr
+-type=[] Resource type
+-u= ESX or vCenter URL [GOVC_URL]
+-verbose=false Write request/response data to stderr
+-vim-namespace=vim25 Vim namespace [GOVC_VIM_NAMESPACE]
+-vim-version=7.0 Vim version [GOVC_VIM_VERSION]
+-xml=false Enable XML output
+&lt;/code>&lt;/pre></description></item><item><title>vcsimの始め方</title><link>https://volanja.github.io/p/vmw-starting-vcsim/</link><pubDate>Sun, 13 Jun 2021 19:10:18 +0900</pubDate><guid>https://volanja.github.io/p/vmw-starting-vcsim/</guid><description>&lt;h1 id="vmware-vcsimとは">VMware vcsimとは&lt;/h1>
+&lt;p>Go言語で書かれたvSphere Simulator&lt;br>
+&lt;a class="link" href="https://github.com/vmware/govmomi/blob/master/vcsim/README.md" target="_blank" rel="noopener"
+>https://github.com/vmware/govmomi/blob/master/vcsim/README.md&lt;/a>&lt;/p>
+&lt;p>VMware vSphere APIのためのGo言語ライブラリである&lt;a class="link" href="https://github.com/vmware/govmomi" target="_blank" rel="noopener"
+>govmomi&lt;/a>に含まれる。&lt;br>
+そのほかにgovmomiは以下のソフトウェアを含む。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/vmware/govmomi/blob/master/govc/README.md" target="_blank" rel="noopener"
+>govc&lt;/a>&lt;br>
+Go言語で書かれたAPI Client&lt;/li>
+&lt;/ul>
+&lt;h1 id="利用用途">利用用途&lt;/h1>
+&lt;ul>
+&lt;li>govcのテスト用シミュレーター&lt;/li>
+&lt;li>Ansible moduleのテスト用シミュレーター
+など&lt;/li>
+&lt;/ul>
+&lt;h1 id="執筆時点の環境">執筆時点の環境&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> vcsim version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Build Version: 0.25.0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Build Commit: bb0307eb
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Build Date: 2021-04-16T16:00:59Z
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="インストール">インストール&lt;/h1>
+&lt;p>&lt;a class="link" href="https://github.com/vmware/govmomi/tree/master/vcsim#installation" target="_blank" rel="noopener"
+>vcsim - Installation&lt;/a>を参照してインストールする。&lt;/p>
+&lt;h1 id="vcsimの起動">vcsimの起動&lt;/h1>
+&lt;h2 id="デフォルト">デフォルト&lt;/h2>
+&lt;p>デフォルトではデータセンター1個、ホスト3台、仮想マシン4台の環境を構築する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ vcsim
+export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915
+&lt;/code>&lt;/pre>&lt;h2 id="esxi-1台のみ">ESXi 1台のみ&lt;/h2>
+&lt;p>&lt;code>-esx&lt;/code>を追加することでESXi 1台のみも構築できる。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ vcsim -esx
+export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917
+&lt;/code>&lt;/pre>&lt;h1 id="govcからのアクセス">govcからのアクセス&lt;/h1>
+&lt;p>vcsim起動後に表示される次のコマンドを実行する。&lt;/p>
+&lt;pre tabindex="0">&lt;code>export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42917
+&lt;/code>&lt;/pre>&lt;p>詳細は&lt;a class="link" href="../starting-govc" >Starting govc&lt;/a>を参照のこと。&lt;/p>
+&lt;h1 id="参考">参考&lt;/h1>
+&lt;h2 id="vcsim-help">vcsim help&lt;/h2>
+&lt;pre tabindex="0">&lt;code>$ vcsim --help
+Usage of /Users/volanja/local/go/bin/vcsim:
+-E string
+Output vcsim variables to the given fifo or stdout (default &amp;#34;-&amp;#34;)
+-api-version string
+API version (default &amp;#34;6.5&amp;#34;)
+-app int
+Number of virtual apps per compute resource
+-autostart
+Autostart model created VMs (default true)
+-cluster int
+Number of clusters (default 1)
+-dc int
+Number of datacenters (default 1)
+-delay int
+Method response delay across all methods
+-delay-jitter float
+Delay jitter coefficient of variation (tip: 0.5 is a good starting value)
+-ds int
+Number of local datastores (default 1)
+-esx
+Simulate standalone ESX
+-folder int
+Number of folders
+-host int
+Number of hosts per cluster (default 3)
+-l string
+Listen address for vcsim (default &amp;#34;127.0.0.1:8989&amp;#34;)
+-load string
+Load model from directory
+-method-delay string
+Delay per method on the form &amp;#39;method1:delay1,method2:delay2...&amp;#39;
+-nsx int
+Number of NSX backed opaque networks
+-password string
+Login password for vcsim (any password allowed by default)
+-pg int
+Number of port groups (default 1)
+-pg-nsx int
+Number of NSX backed port groups
+-pod int
+Number of storage pods per datacenter
+-pool int
+Number of resource pools per compute resource
+-standalone-host int
+Number of standalone hosts (default 1)
+-stdinexit
+Press any key to exit
+-tls
+Enable TLS (default true)
+-tlscert string
+Path to TLS certificate file
+-tlskey string
+Path to TLS key file
+-trace
+Trace SOAP to -trace-file
+-trace-file string
+Trace output file (defaults to stderr)
+-tunnel int
+SDK tunnel port (default -1)
+-username string
+Login username for vcsim (any username allowed by default)
+-vm int
+Number of virtual machines per resource pool (default 2)
+&lt;/code>&lt;/pre></description></item></channel></rss>

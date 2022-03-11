@@ -1,4 +1,6 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="VMware govcとは Go言語で書かれたAPI Client
+<!doctype html><html lang=en-us dir=ltr>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="VMware govcとは Go言語で書かれたAPI Client
 https://github.com/vmware/govmomi/blob/master/govc/README.md
 VMware vSphere APIのためのGo言語ライブラリであるgovmomiに含まれる。
 そのほかにgovmomiは以下のソフトウェアを含む。
@@ -7,8 +9,10 @@ Go言語で書かれたvSphere Simulator  執筆時点の環境 $ govc version -
 初期設定 govcの環境変数設定 govcからvCenterやESXi, vcsimにアクセスするには環境変数を設定する。
 $ govc env GOVC_USERNAME=root GOVC_PASSWORD=VMware1! GOVC_URL=192.168.100.120 例えばvcsimにアクセスするにはvcsim起動後に表示されるexportコマンドを実行して、環境変数を設定する。
 export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915 govcのTips サーバ証明書の検証エラー govc実行時に何も指定しないとサーバ証明書の検証エラーが出る。
-$ govc host.info /DC0/host/DC0_H0 govc: Post &amp;quot;https://127.0.0.1:8989/sdk&amp;quot;: x509: certificate signed by unknown authority -kをつけると検証をスキップする。
-$ govc host.info --help Usage: govc host.info [OPTIONS] Options: -k=false Skip verification of server certificate [GOVC_INSECURE] 毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。"><title>govcの始め方</title><link rel=canonical href=https://volanja.github.io/p/vmw-starting-govc/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="govcの始め方"><meta property="og:description" content="VMware govcとは Go言語で書かれたAPI Client
+$ govc host.info /DC0/host/DC0_H0 govc: Post &amp;#34;https://127.0.0.1:8989/sdk&amp;#34;: x509: certificate signed by unknown authority -kをつけると検証をスキップする。
+$ govc host.info --help Usage: govc host.info [OPTIONS] Options: -k=false Skip verification of server certificate [GOVC_INSECURE] 毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。"><title>govcの始め方</title><link rel=canonical href=https://volanja.github.io/p/vmw-starting-govc/>
+<link rel=stylesheet href=/scss/style.min.ccb3b6bc39249f451ba664be2cff3c86435a8a11178745ddd04a7afc651b4d06.css><meta property="og:title" content="govcの始め方">
+<meta property="og:description" content="VMware govcとは Go言語で書かれたAPI Client
 https://github.com/vmware/govmomi/blob/master/govc/README.md
 VMware vSphere APIのためのGo言語ライブラリであるgovmomiに含まれる。
 そのほかにgovmomiは以下のソフトウェアを含む。
@@ -17,8 +21,14 @@ Go言語で書かれたvSphere Simulator  執筆時点の環境 $ govc version -
 初期設定 govcの環境変数設定 govcからvCenterやESXi, vcsimにアクセスするには環境変数を設定する。
 $ govc env GOVC_USERNAME=root GOVC_PASSWORD=VMware1! GOVC_URL=192.168.100.120 例えばvcsimにアクセスするにはvcsim起動後に表示されるexportコマンドを実行して、環境変数を設定する。
 export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915 govcのTips サーバ証明書の検証エラー govc実行時に何も指定しないとサーバ証明書の検証エラーが出る。
-$ govc host.info /DC0/host/DC0_H0 govc: Post &amp;quot;https://127.0.0.1:8989/sdk&amp;quot;: x509: certificate signed by unknown authority -kをつけると検証をスキップする。
-$ govc host.info --help Usage: govc host.info [OPTIONS] Options: -k=false Skip verification of server certificate [GOVC_INSECURE] 毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。"><meta property="og:url" content="https://volanja.github.io/p/vmw-starting-govc/"><meta property="og:site_name" content="volanja Pages"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="govc"><meta property="article:tag" content="govmomi"><meta property="article:tag" content="vcsim"><meta property="article:published_time" content="2021-06-13T19:10:18+09:00"><meta property="article:modified_time" content="2021-08-01T01:35:32+09:00"><meta name=twitter:site content="@volanja"><meta name=twitter:creator content="@volanja"><meta name=twitter:title content="govcの始め方"><meta name=twitter:description content="VMware govcとは Go言語で書かれたAPI Client
+$ govc host.info /DC0/host/DC0_H0 govc: Post &amp;#34;https://127.0.0.1:8989/sdk&amp;#34;: x509: certificate signed by unknown authority -kをつけると検証をスキップする。
+$ govc host.info --help Usage: govc host.info [OPTIONS] Options: -k=false Skip verification of server certificate [GOVC_INSECURE] 毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。">
+<meta property="og:url" content="https://volanja.github.io/p/vmw-starting-govc/">
+<meta property="og:site_name" content="volanja Pages">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="govc"><meta property="article:tag" content="govmomi"><meta property="article:tag" content="vcsim"><meta property="article:published_time" content="2021-06-13T19:10:18+09:00"><meta property="article:modified_time" content="2021-08-01T01:35:32+09:00">
+<meta name=twitter:site content="@volanja">
+<meta name=twitter:creator content="@volanja"><meta name=twitter:title content="govcの始め方">
+<meta name=twitter:description content="VMware govcとは Go言語で書かれたAPI Client
 https://github.com/vmware/govmomi/blob/master/govc/README.md
 VMware vSphere APIのためのGo言語ライブラリであるgovmomiに含まれる。
 そのほかにgovmomiは以下のソフトウェアを含む。
@@ -27,55 +37,115 @@ Go言語で書かれたvSphere Simulator  執筆時点の環境 $ govc version -
 初期設定 govcの環境変数設定 govcからvCenterやESXi, vcsimにアクセスするには環境変数を設定する。
 $ govc env GOVC_USERNAME=root GOVC_PASSWORD=VMware1! GOVC_URL=192.168.100.120 例えばvcsimにアクセスするにはvcsim起動後に表示されるexportコマンドを実行して、環境変数を設定する。
 export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915 govcのTips サーバ証明書の検証エラー govc実行時に何も指定しないとサーバ証明書の検証エラーが出る。
-$ govc host.info /DC0/host/DC0_H0 govc: Post &amp;quot;https://127.0.0.1:8989/sdk&amp;quot;: x509: certificate signed by unknown authority -kをつけると検証をスキップする。
-$ govc host.info --help Usage: govc host.info [OPTIONS] Options: -k=false Skip verification of server certificate [GOVC_INSECURE] 毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。"><script async src="https://www.googletagmanager.com/gtag/js?id=G-5JGEKG6MX6"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-5JGEKG6MX6',{anonymize_ip:!1})}</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"light")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://volanja.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>前のページ</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/vmware/>VMware</a></header><h2 class=article-title><a href=/p/vmw-starting-govc/>govcの始め方</a></h2><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Jun 13, 2021</time></div></footer></div></header><section class=article-content><h1 id=vmware-govcとは>VMware govcとは</h1><p>Go言語で書かれたAPI Client<br><a href=https://github.com/vmware/govmomi/blob/master/govc/README.md>https://github.com/vmware/govmomi/blob/master/govc/README.md</a></p><p>VMware vSphere APIのためのGo言語ライブラリである<a class=link href=https://github.com/vmware/govmomi target=_blank rel=noopener>govmomi</a>に含まれる。<br>そのほかにgovmomiは以下のソフトウェアを含む。</p><ul><li><a class=link href=https://github.com/vmware/govmomi/blob/master/vcsim/README.md target=_blank rel=noopener>vcsim</a><br>Go言語で書かれたvSphere Simulator</li></ul><h1 id=執筆時点の環境>執筆時点の環境</h1><pre><code class=language-console data-lang=console>$ govc version -l
-Build Version: 0.25.0
-Build Commit: bb0307eb
-Build Date: 2021-04-16T16:00:59Z
-</code></pre><h1 id=インストール>インストール</h1><p><a class=link href=https://github.com/vmware/govmomi/blob/master/govc/README.md#installation target=_blank rel=noopener>govc - Installation</a>を参照してインストールする。</p><h1 id=初期設定>初期設定</h1><h2 id=govcの環境変数設定>govcの環境変数設定</h2><p>govcからvCenterやESXi, vcsimにアクセスするには環境変数を設定する。</p><pre><code>$ govc env
+$ govc host.info /DC0/host/DC0_H0 govc: Post &amp;#34;https://127.0.0.1:8989/sdk&amp;#34;: x509: certificate signed by unknown authority -kをつけると検証をスキップする。
+$ govc host.info --help Usage: govc host.info [OPTIONS] Options: -k=false Skip verification of server certificate [GOVC_INSECURE] 毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JGEKG6MX6"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-5JGEKG6MX6",{anonymize_ip:!1})}</script>
+</head><body class=article-page>
+<script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"light")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=メニューを開く・閉じる>
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header>
+<figure class=site-avatar>
+<a href=/>
+<img src=/img/volanja_hu5ed768897f491ce4e7a0f018f8fd7dc1_51569_300x0_resize_q75_box.jpeg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a>
+</figure><div class=site-meta>
+<h1 class=site-name><a href=/>volanja Pages</a></h1><h2 class=site-description>oss work occasionally.</h2></div></header><ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li><li>
+<a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li><li>
+<a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li><li>
+<a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span>
+</a>
+</li><div class=menu-bottom-section>
+<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>ダークモード</span>
+</li></div></ol></aside><main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/vmware/>
+VMware
+</a>
+</header><div class=article-title-wrapper>
+<h2 class=article-title>
+<a href=/p/vmw-starting-govc/>govcの始め方</a>
+</h2></div><footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jun 13, 2021</time>
+</div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+読了時間: 3分
+</time>
+</div></footer></div></header><section class=article-content>
+<h1 id=vmware-govcとは>VMware govcとは</h1><p>Go言語で書かれたAPI Client<br>
+<a class=link href=https://github.com/vmware/govmomi/blob/master/govc/README.md target=_blank rel=noopener>https://github.com/vmware/govmomi/blob/master/govc/README.md</a></p><p>VMware vSphere APIのためのGo言語ライブラリである<a class=link href=https://github.com/vmware/govmomi target=_blank rel=noopener>govmomi</a>に含まれる。<br>
+そのほかにgovmomiは以下のソフトウェアを含む。</p><ul>
+<li><a class=link href=https://github.com/vmware/govmomi/blob/master/vcsim/README.md target=_blank rel=noopener>vcsim</a><br>
+Go言語で書かれたvSphere Simulator</li></ul><h1 id=執筆時点の環境>執筆時点の環境</h1><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> govc version -l
+</span></span><span class=line><span class=cl><span class=go>Build Version: 0.25.0
+</span></span></span><span class=line><span class=cl><span class=go>Build Commit: bb0307eb
+</span></span></span><span class=line><span class=cl><span class=go>Build Date: 2021-04-16T16:00:59Z
+</span></span></span></code></pre></div><h1 id=インストール>インストール</h1><p><a class=link href=https://github.com/vmware/govmomi/blob/master/govc/README.md#installation target=_blank rel=noopener>govc - Installation</a>を参照してインストールする。</p><h1 id=初期設定>初期設定</h1><h2 id=govcの環境変数設定>govcの環境変数設定</h2><p>govcからvCenterやESXi, vcsimにアクセスするには環境変数を設定する。</p><pre tabindex=0><code>$ govc env
 GOVC_USERNAME=root
 GOVC_PASSWORD=VMware1!
 GOVC_URL=192.168.100.120
-</code></pre><p>例えばvcsimにアクセスするにはvcsim起動後に表示されるexportコマンドを実行して、環境変数を設定する。</p><pre><code>export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915
-</code></pre><h1 id=govcのtips>govcのTips</h1><h2 id=サーバ証明書の検証エラー>サーバ証明書の検証エラー</h2><p>govc実行時に何も指定しないとサーバ証明書の検証エラーが出る。</p><pre><code>$ govc host.info /DC0/host/DC0_H0
-govc: Post &quot;https://127.0.0.1:8989/sdk&quot;: x509: certificate signed by unknown authority
-</code></pre><p>-kをつけると検証をスキップする。</p><pre><code>$ govc host.info --help
+</code></pre><p>例えばvcsimにアクセスするにはvcsim起動後に表示されるexportコマンドを実行して、環境変数を設定する。</p><pre tabindex=0><code>export GOVC_URL=https://user:pass@127.0.0.1:8989/sdk GOVC_SIM_PID=42915
+</code></pre><h1 id=govcのtips>govcのTips</h1><h2 id=サーバ証明書の検証エラー>サーバ証明書の検証エラー</h2><p>govc実行時に何も指定しないとサーバ証明書の検証エラーが出る。</p><pre tabindex=0><code>$ govc host.info /DC0/host/DC0_H0
+govc: Post &#34;https://127.0.0.1:8989/sdk&#34;: x509: certificate signed by unknown authority
+</code></pre><p>-kをつけると検証をスキップする。</p><pre tabindex=0><code>$ govc host.info --help
 Usage: govc host.info [OPTIONS]
 Options:
   -k=false      Skip verification of server certificate [GOVC_INSECURE]
-</code></pre><p>毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。<br>(セキュリティ上はきちんと設定した方が良い。)</p><pre><code>$ export GOVC_INSECURE=1
-</code></pre><h2 id=govcの詳細表示>govcの詳細表示</h2><p>govcで取れる情報がすくない、、と思っても<code>--json</code>を付けると詳細が出てくる。</p><h3 id=jsonなし>jsonなし</h3><pre><code class=language-console data-lang=console>$ govc host.vswitch.info --host=/DC0/host/DC0_H0
-Name:             vSwitch0
-Portgroup:        VM Network
-Pnic:
-MTU:              0
-Ports:            0
-Ports Available:  0
-$
-</code></pre><h3 id=jsonあり>jsonあり</h3><div class=highlight><pre class=chroma><code class=language-json data-lang=json><span class=err>$</span> <span class=err>govc</span> <span class=err>host.vswitch.info</span>  <span class=err>--json</span> <span class=err>--host=/DC</span><span class=mi>0</span><span class=err>/host/DC</span><span class=mi>0</span><span class=err>_H</span><span class=mi>0</span>
-<span class=p>{</span>
-  <span class=nt>&#34;Vswitch&#34;</span><span class=p>:</span> <span class=p>[</span>
-    <span class=p>{</span>
-      <span class=nt>&#34;Name&#34;</span><span class=p>:</span> <span class=s2>&#34;vSwitch0&#34;</span><span class=p>,</span>
-      <span class=nt>&#34;Key&#34;</span><span class=p>:</span> <span class=s2>&#34;&#34;</span><span class=p>,</span>
-      <span class=nt>&#34;NumPorts&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
-      <span class=nt>&#34;NumPortsAvailable&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
-      <span class=nt>&#34;Mtu&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
-      <span class=nt>&#34;Portgroup&#34;</span><span class=p>:</span> <span class=p>[</span>
-        <span class=s2>&#34;VM Network&#34;</span>
-      <span class=p>],</span>
-      <span class=nt>&#34;Pnic&#34;</span><span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
-      <span class=nt>&#34;Spec&#34;</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nt>&#34;NumPorts&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
-        <span class=nt>&#34;Bridge&#34;</span><span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
-        <span class=nt>&#34;Policy&#34;</span><span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
-        <span class=nt>&#34;Mtu&#34;</span><span class=p>:</span> <span class=mi>0</span>
-      <span class=p>}</span>
-    <span class=p>}</span>
-  <span class=p>]</span>
-<span class=p>}</span>
-</code></pre></div><h1 id=参考>参考</h1><h2 id=govc---info>govc - info</h2><p>govcのinfo関連の表示オプションを抜粋</p><pre><code>$ govc --help 2&gt;&amp;1 |grep info
+</code></pre><p>毎回-kを付けるのは手間がかかり忘れがちなので環境変数にオプションを設定する。<br>
+(セキュリティ上はきちんと設定した方が良い。)</p><pre tabindex=0><code>$ export GOVC_INSECURE=1
+</code></pre><h2 id=govcの詳細表示>govcの詳細表示</h2><p>govcで取れる情報がすくない、、と思っても<code>--json</code>を付けると詳細が出てくる。</p><h3 id=jsonなし>jsonなし</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> govc host.vswitch.info --host<span class=o>=</span>/DC0/host/DC0_H0
+</span></span><span class=line><span class=cl><span class=go>Name:             vSwitch0
+</span></span></span><span class=line><span class=cl><span class=go>Portgroup:        VM Network
+</span></span></span><span class=line><span class=cl><span class=go>Pnic:
+</span></span></span><span class=line><span class=cl><span class=go>MTU:              0
+</span></span></span><span class=line><span class=cl><span class=go>Ports:            0
+</span></span></span><span class=line><span class=cl><span class=go>Ports Available:  0
+</span></span></span><span class=line><span class=cl><span class=go></span><span class=gp>$</span>
+</span></span></code></pre></div><h3 id=jsonあり>jsonあり</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=err>$</span> <span class=err>govc</span> <span class=err>host.vswitch.info</span>  <span class=err>--json</span> <span class=err>--host=/DC</span><span class=mi>0</span><span class=err>/host/DC</span><span class=mi>0</span><span class=err>_H</span><span class=mi>0</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;Vswitch&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;Name&#34;</span><span class=p>:</span> <span class=s2>&#34;vSwitch0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;Key&#34;</span><span class=p>:</span> <span class=s2>&#34;&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;NumPorts&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;NumPortsAvailable&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;Mtu&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;Portgroup&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;VM Network&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;Pnic&#34;</span><span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;Spec&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;NumPorts&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;Bridge&#34;</span><span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;Policy&#34;</span><span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;Mtu&#34;</span><span class=p>:</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h1 id=参考>参考</h1><h2 id=govc---info>govc - info</h2><p>govcのinfo関連の表示オプションを抜粋</p><pre tabindex=0><code>$ govc --help 2&gt;&amp;1 |grep info
   cluster.override.info
   cluster.rule.info
   datacenter.info
@@ -106,18 +176,18 @@ $
   vcsa.log.forwarding.info
   vm.info
   vm.option.info
-</code></pre><h2 id=govc---find>govc - find</h2><p>pathを参照するコマンド。</p><pre><code>$ govc find --help
+</code></pre><h2 id=govc---find>govc - find</h2><p>pathを参照するコマンド。</p><pre tabindex=0><code>$ govc find --help
 Usage: govc find [OPTIONS] [ROOT] [KEY VAL]...
 
 Find managed objects.
 
 ROOT can be an inventory path or ManagedObjectReference.
-ROOT defaults to '.', an alias for the root folder or DC if set.
+ROOT defaults to &#39;.&#39;, an alias for the root folder or DC if set.
 
 Optional KEY VAL pairs can be used to filter results against object instance properties.
-Use the govc 'object.collect' command to view possible object property keys.
+Use the govc &#39;object.collect&#39; command to view possible object property keys.
 
-The '-type' flag value can be a managed entity type or one of the following aliases:
+The &#39;-type&#39; flag value can be a managed entity type or one of the following aliases:
 
   a    VirtualApp
   c    ClusterComputeResource
@@ -169,12 +239,57 @@ Options:
   -vim-namespace=vim25   Vim namespace [GOVC_VIM_NAMESPACE]
   -vim-version=7.0       Vim version [GOVC_VIM_VERSION]
   -xml=false             Enable XML output
-</code></pre></section><footer class=article-footer><section class=article-tags><a href=/tags/govc/>govc</a>
+</code></pre></section><footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/govc/>govc</a>
 <a href=/tags/govmomi/>govmomi</a>
-<a href=/tags/vcsim/>vcsim</a></section><section class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><span class=article-time--modified>最終更新 Aug 01, 2021 01:35 JST</span></section></footer></article><aside class=related-contents--wrapper><h2 class=section-title>関連するコンテンツ</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/p/vmw-starting-vcsim/><div class=article-details><h2 class=article-title>vcsimの始め方</h2></div></a></article><article><a href=/p/vmw-govc-got-info-from-vcsim/><div class=article-details><h2 class=article-title>govcでvcsimから情報取得する。</h2></div></a></article><article><a href=/p/vmw-govc-got-info-from-esxi67u3/><div class=article-details><h2 class=article-title>govcでESXi 6.7u3から情報取得する。</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+<a href=/tags/vcsim/>vcsim</a>
+</section><section class=article-lastmod><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>
+最終更新 Aug 01, 2021 01:35 JST
+</span>
+</section></footer></article><aside class=related-contents--wrapper>
+<h2 class=section-title>関連するコンテンツ</h2><div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/p/vmw-starting-vcsim/>
+<div class=article-details>
+<h2 class=article-title>vcsimの始め方</h2></div></a>
+</article><article>
+<a href=/p/vmw-govc-got-info-from-vcsim/>
+<div class=article-details>
+<h2 class=article-title>govcでvcsimから情報取得する。</h2></div></a>
+</article><article>
+<a href=/p/vmw-govc-got-info-from-esxi67u3/>
+<div class=article-details>
+<h2 class=article-title>govcでESXi 6.7u3から情報取得する。</h2></div></a>
+</article></div></div></aside><footer class=site-footer>
+<section class=copyright>
+&copy;
 2021 -
-2022 volanja Pages</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.0.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2022 volanja Pages
+</section><section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.10.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div><div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目次</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#vmware-govcとは>VMware govcとは</a></li><li><a href=#執筆時点の環境>執筆時点の環境</a></li><li><a href=#インストール>インストール</a></li><li><a href=#初期設定>初期設定</a><ol><li><a href=#govcの環境変数設定>govcの環境変数設定</a></li></ol></li><li><a href=#govcのtips>govcのTips</a><ol><li><a href=#サーバ証明書の検証エラー>サーバ証明書の検証エラー</a></li><li><a href=#govcの詳細表示>govcの詳細表示</a><ol><li><a href=#jsonなし>jsonなし</a></li><li><a href=#jsonあり>jsonあり</a></li></ol></li></ol></li><li><a href=#参考>参考</a><ol><li><a href=#govc---info>govc - info</a></li><li><a href=#govc---find>govc - find</a></li></ol></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script>
+</body></html>

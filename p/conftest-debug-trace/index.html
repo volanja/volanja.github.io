@@ -1,4 +1,6 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="最近、Conftestを勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。
+<!doctype html><html lang=en-us dir=ltr>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="最近、Conftestを勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。
 Conftestを簡単に説明すると、ConftestとはYAMLやJSONなどの構造化データに対するテストを作成するツールである。
 例えばk8sの設定ファイルのテストなどに使われていて、テストはOpenPolicyAgent(OPA)のRego言語を用いて記述する。
 (Regoは&amp;quot;ray-go&amp;quot;と発音するので、日本語では&amp;quot;レイゴー&amp;quot;)
@@ -18,7 +20,9 @@ traceは式(expression)の1つであるため、traceを表示するには次の
  traceより前の式(expression)の結果で、traceの出力が変わる。
 例えば、traceより前の式の結果がtrue なら、式のあとのtraceは表示される。
 一方で、traceより前の式の結果がfalseなら、式のあとのtraceは表示されない。
-これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。 trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。"><title>Conftestでのtraceによるデバッグ</title><link rel=canonical href=https://volanja.github.io/p/conftest-debug-trace/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Conftestでのtraceによるデバッグ"><meta property="og:description" content="最近、Conftestを勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。
+これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。 trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。"><title>Conftestでのtraceによるデバッグ</title><link rel=canonical href=https://volanja.github.io/p/conftest-debug-trace/>
+<link rel=stylesheet href=/scss/style.min.ccb3b6bc39249f451ba664be2cff3c86435a8a11178745ddd04a7afc651b4d06.css><meta property="og:title" content="Conftestでのtraceによるデバッグ">
+<meta property="og:description" content="最近、Conftestを勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。
 Conftestを簡単に説明すると、ConftestとはYAMLやJSONなどの構造化データに対するテストを作成するツールである。
 例えばk8sの設定ファイルのテストなどに使われていて、テストはOpenPolicyAgent(OPA)のRego言語を用いて記述する。
 (Regoは&amp;quot;ray-go&amp;quot;と発音するので、日本語では&amp;quot;レイゴー&amp;quot;)
@@ -38,7 +42,13 @@ traceは式(expression)の1つであるため、traceを表示するには次の
  traceより前の式(expression)の結果で、traceの出力が変わる。
 例えば、traceより前の式の結果がtrue なら、式のあとのtraceは表示される。
 一方で、traceより前の式の結果がfalseなら、式のあとのtraceは表示されない。
-これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。 trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。"><meta property="og:url" content="https://volanja.github.io/p/conftest-debug-trace/"><meta property="og:site_name" content="volanja Pages"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Conftest"><meta property="article:published_time" content="2021-07-25T18:20:00+09:00"><meta property="article:modified_time" content="2021-07-25T18:21:55+09:00"><meta name=twitter:site content="@volanja"><meta name=twitter:creator content="@volanja"><meta name=twitter:title content="Conftestでのtraceによるデバッグ"><meta name=twitter:description content="最近、Conftestを勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。
+これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。 trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。">
+<meta property="og:url" content="https://volanja.github.io/p/conftest-debug-trace/">
+<meta property="og:site_name" content="volanja Pages">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Conftest"><meta property="article:published_time" content="2021-07-25T18:20:00+09:00"><meta property="article:modified_time" content="2021-07-25T18:21:55+09:00">
+<meta name=twitter:site content="@volanja">
+<meta name=twitter:creator content="@volanja"><meta name=twitter:title content="Conftestでのtraceによるデバッグ">
+<meta name=twitter:description content="最近、Conftestを勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。
 Conftestを簡単に説明すると、ConftestとはYAMLやJSONなどの構造化データに対するテストを作成するツールである。
 例えばk8sの設定ファイルのテストなどに使われていて、テストはOpenPolicyAgent(OPA)のRego言語を用いて記述する。
 (Regoは&amp;quot;ray-go&amp;quot;と発音するので、日本語では&amp;quot;レイゴー&amp;quot;)
@@ -58,165 +68,280 @@ traceは式(expression)の1つであるため、traceを表示するには次の
  traceより前の式(expression)の結果で、traceの出力が変わる。
 例えば、traceより前の式の結果がtrue なら、式のあとのtraceは表示される。
 一方で、traceより前の式の結果がfalseなら、式のあとのtraceは表示されない。
-これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。 trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。"><script async src="https://www.googletagmanager.com/gtag/js?id=G-5JGEKG6MX6"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-5JGEKG6MX6',{anonymize_ip:!1})}</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"light")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://volanja.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>前のページ</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/conftest/>Conftest</a></header><h2 class=article-title><a href=/p/conftest-debug-trace/>Conftestでのtraceによるデバッグ</a></h2><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Jul 25, 2021</time></div></footer></div></header><section class=article-content><p>最近、<a class=link href=https://www.conftest.dev/ target=_blank rel=noopener>Conftest</a>を勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。</p><p>Conftestを簡単に説明すると、ConftestとはYAMLやJSONなどの構造化データに対するテストを作成するツールである。<br>例えばk8sの設定ファイルのテストなどに使われていて、テストは<a class=link href=https://www.openpolicyagent.org/ target=_blank rel=noopener>OpenPolicyAgent(OPA)</a>の<a class=link href=https://www.openpolicyagent.org/docs/latest/#rego target=_blank rel=noopener>Rego言語</a>を用いて記述する。<br>(Regoは"ray-go"と発音するので、日本語では"レイゴー")</p><h1 id=trace-の使い方>trace の使い方</h1><p>ConftestのRego言語ではデバッグのためにtraceをコード内に埋め込み、表示させることができる。<br><a class=link href=https://www.openpolicyagent.org/docs/latest/policy-reference/#debugging target=_blank rel=noopener>OpenPolicyAgent - Policy Reference - Built-in Functions - Debugging</a></p><h2 id=コード>コード</h2><p>traceで文字列を表示させる場合は引数として文字列を渡す。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=nf>trace</span><span class=p>(</span><span class=s>&#34;Hello&#34;</span><span class=p>)</span>
-</code></pre></div><p>変数を埋め込みたい場合は<code>sprintf</code>を使う。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;foo: %v&#34;</span><span class=p>,</span> <span class=p>[</span><span class=nx>input</span><span class=p>.</span><span class=nx>foo</span><span class=p>]))</span>
-</code></pre></div><p>sprintfの第二引数には変数を指定できるが、変数には[]が必要である。<br>(変数に[]をつけない場合の動作は後述。)</p><h2 id=実行方法>実行方法</h2><p>traceを表示するには<code>conftest test</code>や<code>conftest verify</code>に<code>--trace</code>を追加して実行する。</p><h1 id=traceの注意点>traceの注意点</h1><h2 id=おさらい>おさらい</h2><p>traceの注意点の前にRego言語の構文と名前についておさらいする。</p><ul><li>Regoの構文では、ルール(Rules)のbodyに式(expression)を置く。<br>式は結果がtrueになるように記載し、全ての式がtrueの場合はルールが成功する。</li><li>次のように式が２行ある場合は論理積(Logical AND)として処理されるので、<br>2つの式の結果がtrueであれば、ルールは成功となる。</li><li>逆に式の結果のどちらかがfalseであれば、ルールは失敗となるし、<br>式の結果がfalseだった時点でルールの処理が中断され、falseだった式以降は処理されない。</li></ul><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=nx>deny</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=p>{</span>                        <span class=err>#</span><span class=nx>ルール</span><span class=p>(</span><span class=nx>Rules</span><span class=p>)</span><span class=nx>のhead</span>
-                                   <span class=err>#</span><span class=nx>ルール</span><span class=p>(</span><span class=nx>Rules</span><span class=p>)</span><span class=nx>のbody</span>
-  <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span> <span class=o>==</span> <span class=s>&#34;one&#34;</span>               <span class=err>#</span><span class=nx>式</span><span class=p>(</span><span class=nx>expression</span><span class=p>)</span>
-  <span class=nx>input</span><span class=p>.</span><span class=nx>bar</span> <span class=o>==</span> <span class=s>&#34;second&#34;</span>            <span class=err>#</span><span class=nx>式</span><span class=p>(</span><span class=nx>expression</span><span class=p>)</span>
-  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Output trace message.&#34;</span>   <span class=err>#</span><span class=nx>変数</span><span class=p>(</span><span class=nx>variables</span><span class=p>)</span>
-<span class=p>}</span>
-</code></pre></div><h2 id=注意点>注意点</h2><p>OPAのドキュメントでは明確に書かれていないように見えるが、<br>traceは式(expression)の1つであるため、traceを表示するには次の注意点がある。</p><ul><li>traceより前の式(expression)の結果で、traceの出力が変わる。<br>例えば、traceより前の式の結果がtrue なら、式のあとのtraceは表示される。<br>一方で、traceより前の式の結果がfalseなら、式のあとのtraceは表示されない。<br>これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。</li><li>trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。<br>これはtraceの式としての結果がfalseになり、ルールの処理が中断され、ルールが失敗するため。</li></ul><p>実際にコードを用いて注意点を確認する。</p><h1 id=注意点の例>注意点の例</h1><h2 id=例1traceより前の式の結果でtraceの出力有無が変わる>例1：traceより前の式の結果でtraceの出力有無が変わる</h2><h3 id=ファイルと実行コマンド>ファイルと実行コマンド</h3><details><summary>policy_trace_behavior/trace.rego</summary><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
-
-<span class=nx>deny_trace_message</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=p>{</span>
-  <span class=err>#</span> <span class=nx>式の前にある</span> <span class=nx>trace</span> <span class=nx>は必ず出力する</span><span class=err>。</span>
-  <span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;[Before expression] foo: %v&#34;</span><span class=p>,</span> <span class=p>[</span><span class=nx>input</span><span class=p>.</span><span class=nx>foo</span><span class=p>]))</span>
-  <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span> <span class=o>==</span> <span class=s>&#34;before &amp; after&#34;</span>
-  <span class=err>#</span> <span class=nx>式の結果が</span> <span class=kc>true</span>  <span class=nx>なら</span> <span class=nx>次のtrace</span> <span class=nx>は出力する</span><span class=err>。</span>
-  <span class=err>#</span> <span class=nx>式の結果が</span> <span class=kc>false</span> <span class=nx>なら</span> <span class=nx>次のtrace</span> <span class=nx>は出力されない</span><span class=err>。</span>
-  <span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;[After expression] foo: %v&#34;</span><span class=p>,</span> <span class=p>[</span><span class=nx>input</span><span class=p>.</span><span class=nx>foo</span><span class=p>]))</span>
-  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Output trace message.&#34;</span>
-<span class=p>}</span>
-</code></pre></div></details><details><summary>policy_trace_behavior/trace_test.rego</summary><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
-
-<span class=nx>test_trace_show_before_and_after</span> <span class=p>{</span>
-  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Output trace message.&#34;</span>
-  <span class=nx>json</span> <span class=o>:=</span> <span class=p>{</span>
-    <span class=err>#</span> <span class=nx>式</span><span class=p>(</span><span class=nx>expression</span><span class=p>)</span><span class=nx>はtrueになる</span>
-    <span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=s>&#34;before &amp; after&#34;</span>
-  <span class=p>}</span>
-  <span class=nx>deny_trace_message</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=nx>with</span> <span class=nx>input</span> <span class=nx>as</span> <span class=nx>json</span>
-<span class=p>}</span>
-
-<span class=nx>test_trace_show_only_before</span> <span class=p>{</span>
-  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Output trace message.&#34;</span>
-  <span class=nx>json</span> <span class=o>:=</span> <span class=p>{</span>
-    <span class=err>#</span> <span class=nx>式</span><span class=p>(</span><span class=nx>expression</span><span class=p>)</span><span class=nx>はfalseになる</span>
-    <span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=s>&#34;before&#34;</span>
-  <span class=p>}</span>
-  <span class=nx>deny_trace_message</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=nx>with</span> <span class=nx>input</span> <span class=nx>as</span> <span class=nx>json</span>
-<span class=p>}</span>
-</code></pre></div></details><pre><code>conftest verify --policy policy_trace_behavior --trace
-</code></pre><h3 id=traceより前の式の結果がtrueの場合>traceより前の式の結果がtrueの場合</h3><p>traceより前の式の結果がtrueだった場合は、式の前後のtraceが表示された。(ハイライト部分)</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>file: policy_trace_behavior/trace_test.rego <span class=p>|</span> query: test_trace_show_before_and_after
-TRAC   Enter data.main.test_trace_show_before_and_after <span class=o>=</span> _
-TRAC   <span class=p>|</span> Eval data.main.test_trace_show_before_and_after <span class=o>=</span> _
-TRAC   <span class=p>|</span> Index data.main.test_trace_show_before_and_after <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
-TRAC   <span class=p>|</span> Enter data.main.test_trace_show_before_and_after
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Output trace message.&#34;</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;before &amp; after&#34;</span><span class=o>}</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval data.main.deny_trace_message<span class=o>[</span>msg<span class=o>]</span> with input as json
-TRAC   <span class=p>|</span> <span class=p>|</span> Index data.main.deny_trace_message <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Enter data.main.deny_trace_message
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>__local7__</span> <span class=o>=</span> input.foo
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval sprintf<span class=o>(</span><span class=s2>&#34;[Before expression] foo: %v&#34;</span>, <span class=o>[</span>__local7__<span class=o>]</span>, __local5__<span class=o>)</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval trace<span class=o>(</span>__local5__<span class=o>)</span>
-<span class=hl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Note <span class=s2>&#34;[Before expression] foo: before &amp; after&#34;</span>
-</span>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval input.foo <span class=o>=</span> <span class=s2>&#34;before &amp; after&#34;</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>__local8__</span> <span class=o>=</span> input.foo
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval sprintf<span class=o>(</span><span class=s2>&#34;[After expression] foo: %v&#34;</span>, <span class=o>[</span>__local8__<span class=o>]</span>, __local6__<span class=o>)</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval trace<span class=o>(</span>__local6__<span class=o>)</span>
-<span class=hl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Note <span class=s2>&#34;[After expression] foo: before &amp; after&#34;</span>
-</span>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Output trace message.&#34;</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Exit data.main.deny_trace_message
-TRAC   <span class=p>|</span> <span class=p>|</span> Exit data.main.test_trace_show_before_and_after
-TRAC   <span class=p>|</span> Exit data.main.test_trace_show_before_and_after <span class=o>=</span> _
-<span class=o>(</span>snip<span class=o>)</span>
-</code></pre></div><h3 id=traceより前の式の結果がfalseの場合>traceより前の式の結果がfalseの場合</h3><p>traceより前の式の結果がfalseだった場合は、式のあとのtraceは表示されない。<br>falseだった式より前のtraceのみが表示された。(ハイライト部分1つ目)<br>ルールもFailした(ハイライト部分2つ目)</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>file: policy_trace_behavior/trace_test.rego <span class=p>|</span> query: test_trace_show_only_before
-TRAC   Enter data.main.test_trace_show_only_before <span class=o>=</span> _
-TRAC   <span class=p>|</span> Eval data.main.test_trace_show_only_before <span class=o>=</span> _
-TRAC   <span class=p>|</span> Index data.main.test_trace_show_only_before <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
-TRAC   <span class=p>|</span> Enter data.main.test_trace_show_only_before
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Output trace message.&#34;</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;before&#34;</span><span class=o>}</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval data.main.deny_trace_message<span class=o>[</span>msg<span class=o>]</span> with input as json
-TRAC   <span class=p>|</span> <span class=p>|</span> Index data.main.deny_trace_message <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Enter data.main.deny_trace_message
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>__local7__</span> <span class=o>=</span> input.foo
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval sprintf<span class=o>(</span><span class=s2>&#34;[Before expression] foo: %v&#34;</span>, <span class=o>[</span>__local7__<span class=o>]</span>, __local5__<span class=o>)</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval trace<span class=o>(</span>__local5__<span class=o>)</span>
-<span class=hl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Note <span class=s2>&#34;[Before expression] foo: before&#34;</span>
-</span>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval input.foo <span class=o>=</span> <span class=s2>&#34;before &amp; after&#34;</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Fail input.foo <span class=o>=</span> <span class=s2>&#34;before &amp; after&#34;</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Redo trace<span class=o>(</span>__local5__<span class=o>)</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Redo sprintf<span class=o>(</span><span class=s2>&#34;[Before expression] foo: %v&#34;</span>, <span class=o>[</span>__local7__<span class=o>]</span>, __local5__<span class=o>)</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>__local7__</span> <span class=o>=</span> input.foo
-TRAC   <span class=p>|</span> <span class=p>|</span> Fail data.main.deny_trace_message<span class=o>[</span>msg<span class=o>]</span> with input as json
-TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;before&#34;</span><span class=o>}</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Output trace message.&#34;</span>
-<span class=hl>TRAC   <span class=p>|</span> Fail data.main.test_trace_show_only_before <span class=o>=</span> _
-</span></code></pre></div><h2 id=例2trace内のsprintfで構文ミスした場合はルールがfailする>例2：trace内のsprintfで構文ミスした場合は、ルールがFailする。</h2><h3 id=ファイルと実行コマンド-1>ファイルと実行コマンド</h3><details><summary>policy_trace_expression/trace.rego</summary><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
-
-<span class=err>#</span> <span class=nx>sprintfの第二引数には</span><span class=p>[]</span><span class=nx>をつけない場合の例</span>
-<span class=err>#</span> <span class=nx>traceの式の結果がfalseになるので</span><span class=err>、</span><span class=nx>ルールはFAIL</span> <span class=nx>になる</span><span class=err>。</span>
-<span class=nx>deny_invalid_2nd_argument</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=p>{</span>
-  <span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;[Invalid 2nd argument] foo: %v&#34;</span><span class=p>,</span> <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span><span class=p>))</span>
-  <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span> <span class=o>==</span> <span class=s>&#34;one&#34;</span>
-  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Invalid 2nd argument&#34;</span>
-<span class=p>}</span>
-
-<span class=err>#</span> <span class=nx>sprintfの第二引数が存在しない場合の例</span>
-<span class=err>#</span> <span class=nx>traceの式の結果がfalseになるので</span><span class=err>、</span><span class=nx>ルールはFAIL</span> <span class=nx>になる</span><span class=err>。</span>
-<span class=nx>deny_not_exist_2nd_argument</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=p>{</span>
-  <span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;[Invalid 2nd argument] foo: %v&#34;</span><span class=p>,</span> <span class=p>[</span><span class=nx>input</span><span class=p>.</span><span class=nx>bar</span><span class=p>]))</span>
-  <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span> <span class=o>==</span> <span class=s>&#34;one&#34;</span>
-  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Not exist 2nd argument&#34;</span>
-<span class=p>}</span>
-</code></pre></div></details><details><summary>policy_trace_expression/trace_test.rego</summary><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
-
-<span class=err>#</span> <span class=nx>FAIL</span>
-<span class=nx>test_invalid_2nd_argument1</span> <span class=p>{</span>
-  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Invalid 2nd argument&#34;</span>
-  <span class=nx>json</span> <span class=o>:=</span> <span class=p>{</span>
-    <span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=s>&#34;one&#34;</span>
-  <span class=p>}</span>
-  <span class=nx>deny_invalid_2nd_argument</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=nx>with</span> <span class=nx>input</span> <span class=nx>as</span> <span class=nx>json</span>
-<span class=p>}</span>
-
-<span class=err>#</span> <span class=nx>FAIL</span>
-<span class=nx>test_not_exist_2nd_argument1</span> <span class=p>{</span>
-  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Not exist 2nd argument&#34;</span>
-  <span class=nx>json</span> <span class=o>:=</span> <span class=p>{</span>
-    <span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=s>&#34;one&#34;</span>
-  <span class=p>}</span>
-  <span class=nx>deny_not_exist_2nd_argument</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=nx>with</span> <span class=nx>input</span> <span class=nx>as</span> <span class=nx>json</span>
-<span class=p>}</span>
-</code></pre></div></details><pre><code>conftest verify --policy policy_trace_expression --trace
-</code></pre><h3 id=sprintfの第二引数にはをつけない場合の例>sprintfの第二引数には[]をつけない場合の例</h3><p>sprintfでFailし、ルールもFailした。(ハイライト部分)</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>file: policy_trace_expression/trace_test.rego <span class=p>|</span> query: test_invalid_2nd_argument1
-TRAC   Enter data.main.test_invalid_2nd_argument1 <span class=o>=</span> _
-TRAC   <span class=p>|</span> Eval data.main.test_invalid_2nd_argument1 <span class=o>=</span> _
-TRAC   <span class=p>|</span> Index data.main.test_invalid_2nd_argument1 <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
-TRAC   <span class=p>|</span> Enter data.main.test_invalid_2nd_argument1
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Invalid 2nd argument&#34;</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;one&#34;</span><span class=o>}</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval data.main.deny_invalid_2nd_argument<span class=o>[</span>msg<span class=o>]</span> with input as json
-TRAC   <span class=p>|</span> <span class=p>|</span> Index data.main.deny_invalid_2nd_argument <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Enter data.main.deny_invalid_2nd_argument
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>__local14__</span> <span class=o>=</span> input.foo
-TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval sprintf<span class=o>(</span><span class=s2>&#34;[Invalid 2nd argument] foo: %v&#34;</span>, __local14__, __local12__<span class=o>)</span>
-<span class=hl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Fail sprintf<span class=o>(</span><span class=s2>&#34;[Invalid 2nd argument] foo: %v&#34;</span>, __local14__, __local12__<span class=o>)</span>
-</span>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>__local14__</span> <span class=o>=</span> input.foo
-TRAC   <span class=p>|</span> <span class=p>|</span> Fail data.main.deny_invalid_2nd_argument<span class=o>[</span>msg<span class=o>]</span> with input as json
-TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;one&#34;</span><span class=o>}</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Invalid 2nd argument&#34;</span>
-<span class=hl>TRAC   <span class=p>|</span> Fail data.main.test_invalid_2nd_argument1 <span class=o>=</span> _
-</span></code></pre></div><h3 id=sprintfの第二引数が存在しない場合の例>sprintfの第二引数が存在しない場合の例</h3><p>jsonaの読み込みあたりでFailし、ルールもFailした。(ハイライト部分)</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>file: policy_trace_expression/trace_test.rego <span class=p>|</span> query: test_not_exist_2nd_argument1
-TRAC   Enter data.main.test_not_exist_2nd_argument1 <span class=o>=</span> _
-TRAC   <span class=p>|</span> Eval data.main.test_not_exist_2nd_argument1 <span class=o>=</span> _
-TRAC   <span class=p>|</span> Index data.main.test_not_exist_2nd_argument1 <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
-TRAC   <span class=p>|</span> Enter data.main.test_not_exist_2nd_argument1
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Not exist 2nd argument&#34;</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;one&#34;</span><span class=o>}</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Eval data.main.deny_not_exist_2nd_argument<span class=o>[</span>msg<span class=o>]</span> with input as json
-TRAC   <span class=p>|</span> <span class=p>|</span> Index data.main.deny_not_exist_2nd_argument matched <span class=m>0</span> rules<span class=o>)</span>
-<span class=hl>TRAC   <span class=p>|</span> <span class=p>|</span> Fail data.main.deny_not_exist_2nd_argument<span class=o>[</span>msg<span class=o>]</span> with input as json
-</span>TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;one&#34;</span><span class=o>}</span>
-TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Not exist 2nd argument&#34;</span>
-<span class=hl>TRAC   <span class=p>|</span> Fail data.main.test_not_exist_2nd_argument1 <span class=o>=</span> _
-</span></code></pre></div><h1 id=最後に>最後に</h1><p>ここまでの記載の通り、traceは式の1つとして動作するため、traceの成否がルールの成否にも関わってくる。<br>個人的にはtraceはルールの成否にかかわらずデバッグプリントとしてのみ動作して欲しいが、そのような動作ではないので、<br>traceの挙動を理解した上でのデバッグプリントが必要である。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/conftest/>Conftest</a></section><section class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><span class=article-time--modified>最終更新 Jul 25, 2021 18:21 JST</span></section></footer></article><aside class=related-contents--wrapper></aside><footer class=site-footer><section class=copyright>&copy;
+これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。 trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JGEKG6MX6"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-5JGEKG6MX6",{anonymize_ip:!1})}</script>
+</head><body class=article-page>
+<script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"light")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=メニューを開く・閉じる>
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header>
+<figure class=site-avatar>
+<a href=/>
+<img src=/img/volanja_hu5ed768897f491ce4e7a0f018f8fd7dc1_51569_300x0_resize_q75_box.jpeg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a>
+</figure><div class=site-meta>
+<h1 class=site-name><a href=/>volanja Pages</a></h1><h2 class=site-description>oss work occasionally.</h2></div></header><ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li><li>
+<a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li><li>
+<a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li><li>
+<a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span>
+</a>
+</li><div class=menu-bottom-section>
+<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>ダークモード</span>
+</li></div></ol></aside><main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/conftest/>
+Conftest
+</a>
+</header><div class=article-title-wrapper>
+<h2 class=article-title>
+<a href=/p/conftest-debug-trace/>Conftestでのtraceによるデバッグ</a>
+</h2></div><footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 25, 2021</time>
+</div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+読了時間: 5分
+</time>
+</div></footer></div></header><section class=article-content>
+<p>最近、<a class=link href=https://www.conftest.dev/ target=_blank rel=noopener>Conftest</a>を勉強し始めたところ、デバッグ用のtraceの挙動で悩んだので使い方と注意点を記載する。</p><p>Conftestを簡単に説明すると、ConftestとはYAMLやJSONなどの構造化データに対するテストを作成するツールである。<br>
+例えばk8sの設定ファイルのテストなどに使われていて、テストは<a class=link href=https://www.openpolicyagent.org/ target=_blank rel=noopener>OpenPolicyAgent(OPA)</a>の<a class=link href=https://www.openpolicyagent.org/docs/latest/#rego target=_blank rel=noopener>Rego言語</a>を用いて記述する。<br>
+(Regoは"ray-go"と発音するので、日本語では"レイゴー")</p><h1 id=trace-の使い方>trace の使い方</h1><p>ConftestのRego言語ではデバッグのためにtraceをコード内に埋め込み、表示させることができる。<br>
+<a class=link href=https://www.openpolicyagent.org/docs/latest/policy-reference/#debugging target=_blank rel=noopener>OpenPolicyAgent - Policy Reference - Built-in Functions - Debugging</a></p><h2 id=コード>コード</h2><p>traceで文字列を表示させる場合は引数として文字列を渡す。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nf>trace</span><span class=p>(</span><span class=s>&#34;Hello&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><p>変数を埋め込みたい場合は<code>sprintf</code>を使う。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;foo: %v&#34;</span><span class=p>,</span> <span class=p>[</span><span class=nx>input</span><span class=p>.</span><span class=nx>foo</span><span class=p>]))</span>
+</span></span></code></pre></div><p>sprintfの第二引数には変数を指定できるが、変数には[]が必要である。<br>
+(変数に[]をつけない場合の動作は後述。)</p><h2 id=実行方法>実行方法</h2><p>traceを表示するには<code>conftest test</code>や<code>conftest verify</code>に<code>--trace</code>を追加して実行する。</p><h1 id=traceの注意点>traceの注意点</h1><h2 id=おさらい>おさらい</h2><p>traceの注意点の前にRego言語の構文と名前についておさらいする。</p><ul>
+<li>Regoの構文では、ルール(Rules)のbodyに式(expression)を置く。<br>
+式は結果がtrueになるように記載し、全ての式がtrueの場合はルールが成功する。</li><li>次のように式が２行ある場合は論理積(Logical AND)として処理されるので、<br>
+2つの式の結果がtrueであれば、ルールは成功となる。</li><li>逆に式の結果のどちらかがfalseであれば、ルールは失敗となるし、<br>
+式の結果がfalseだった時点でルールの処理が中断され、falseだった式以降は処理されない。</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>deny</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=p>{</span>                        <span class=err>#</span><span class=nx>ルール</span><span class=p>(</span><span class=nx>Rules</span><span class=p>)</span><span class=nx>のhead</span>
+</span></span><span class=line><span class=cl>                                   <span class=err>#</span><span class=nx>ルール</span><span class=p>(</span><span class=nx>Rules</span><span class=p>)</span><span class=nx>のbody</span>
+</span></span><span class=line><span class=cl>  <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span> <span class=o>==</span> <span class=s>&#34;one&#34;</span>               <span class=err>#</span><span class=nx>式</span><span class=p>(</span><span class=nx>expression</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=nx>input</span><span class=p>.</span><span class=nx>bar</span> <span class=o>==</span> <span class=s>&#34;second&#34;</span>            <span class=err>#</span><span class=nx>式</span><span class=p>(</span><span class=nx>expression</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Output trace message.&#34;</span>   <span class=err>#</span><span class=nx>変数</span><span class=p>(</span><span class=nx>variables</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=注意点>注意点</h2><p>OPAのドキュメントでは明確に書かれていないように見えるが、<br>
+traceは式(expression)の1つであるため、traceを表示するには次の注意点がある。</p><ul>
+<li>traceより前の式(expression)の結果で、traceの出力が変わる。<br>
+例えば、traceより前の式の結果がtrue なら、式のあとのtraceは表示される。<br>
+一方で、traceより前の式の結果がfalseなら、式のあとのtraceは表示されない。<br>
+これはtraceより前の式の結果がfalseだった時点でルールの評価が中断され、ルールが失敗するため。</li><li>trace内のsprintfの第二引数に存在しない変数を指定した場合や変数に[]をつけ忘れた場合、ルールが失敗する。<br>
+これはtraceの式としての結果がfalseになり、ルールの処理が中断され、ルールが失敗するため。</li></ul><p>実際にコードを用いて注意点を確認する。</p><h1 id=注意点の例>注意点の例</h1><h2 id=例1traceより前の式の結果でtraceの出力有無が変わる>例1：traceより前の式の結果でtraceの出力有無が変わる</h2><h3 id=ファイルと実行コマンド>ファイルと実行コマンド</h3><details>
+<summary>policy_trace_behavior/trace.rego</summary>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>deny_trace_message</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=err>#</span> <span class=nx>式の前にある</span> <span class=nx>trace</span> <span class=nx>は必ず出力する</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>  <span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;[Before expression] foo: %v&#34;</span><span class=p>,</span> <span class=p>[</span><span class=nx>input</span><span class=p>.</span><span class=nx>foo</span><span class=p>]))</span>
+</span></span><span class=line><span class=cl>  <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span> <span class=o>==</span> <span class=s>&#34;before &amp; after&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=err>#</span> <span class=nx>式の結果が</span> <span class=kc>true</span>  <span class=nx>なら</span> <span class=nx>次のtrace</span> <span class=nx>は出力する</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>  <span class=err>#</span> <span class=nx>式の結果が</span> <span class=kc>false</span> <span class=nx>なら</span> <span class=nx>次のtrace</span> <span class=nx>は出力されない</span><span class=err>。</span>
+</span></span><span class=line><span class=cl>  <span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;[After expression] foo: %v&#34;</span><span class=p>,</span> <span class=p>[</span><span class=nx>input</span><span class=p>.</span><span class=nx>foo</span><span class=p>]))</span>
+</span></span><span class=line><span class=cl>  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Output trace message.&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></details>
+<details>
+<summary>policy_trace_behavior/trace_test.rego</summary>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>test_trace_show_before_and_after</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Output trace message.&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>json</span> <span class=o>:=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=err>#</span> <span class=nx>式</span><span class=p>(</span><span class=nx>expression</span><span class=p>)</span><span class=nx>はtrueになる</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=s>&#34;before &amp; after&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=nx>deny_trace_message</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=nx>with</span> <span class=nx>input</span> <span class=nx>as</span> <span class=nx>json</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>test_trace_show_only_before</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Output trace message.&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>json</span> <span class=o>:=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=err>#</span> <span class=nx>式</span><span class=p>(</span><span class=nx>expression</span><span class=p>)</span><span class=nx>はfalseになる</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=s>&#34;before&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=nx>deny_trace_message</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=nx>with</span> <span class=nx>input</span> <span class=nx>as</span> <span class=nx>json</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></details>
+<pre tabindex=0><code>conftest verify --policy policy_trace_behavior --trace
+</code></pre><h3 id=traceより前の式の結果がtrueの場合>traceより前の式の結果がtrueの場合</h3><p>traceより前の式の結果がtrueだった場合は、式の前後のtraceが表示された。(ハイライト部分)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>file: policy_trace_behavior/trace_test.rego <span class=p>|</span> query: test_trace_show_before_and_after
+</span></span><span class=line><span class=cl>TRAC   Enter data.main.test_trace_show_before_and_after <span class=o>=</span> _
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Eval data.main.test_trace_show_before_and_after <span class=o>=</span> _
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Index data.main.test_trace_show_before_and_after <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Enter data.main.test_trace_show_before_and_after
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Output trace message.&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;before &amp; after&#34;</span><span class=o>}</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval data.main.deny_trace_message<span class=o>[</span>msg<span class=o>]</span> with input as json
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Index data.main.deny_trace_message <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Enter data.main.deny_trace_message
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>__local7__</span> <span class=o>=</span> input.foo
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval sprintf<span class=o>(</span><span class=s2>&#34;[Before expression] foo: %v&#34;</span>, <span class=o>[</span>__local7__<span class=o>]</span>, __local5__<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval trace<span class=o>(</span>__local5__<span class=o>)</span>
+</span></span><span class="line hl"><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Note <span class=s2>&#34;[Before expression] foo: before &amp; after&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval input.foo <span class=o>=</span> <span class=s2>&#34;before &amp; after&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>__local8__</span> <span class=o>=</span> input.foo
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval sprintf<span class=o>(</span><span class=s2>&#34;[After expression] foo: %v&#34;</span>, <span class=o>[</span>__local8__<span class=o>]</span>, __local6__<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval trace<span class=o>(</span>__local6__<span class=o>)</span>
+</span></span><span class="line hl"><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Note <span class=s2>&#34;[After expression] foo: before &amp; after&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Output trace message.&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Exit data.main.deny_trace_message
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Exit data.main.test_trace_show_before_and_after
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Exit data.main.test_trace_show_before_and_after <span class=o>=</span> _
+</span></span><span class=line><span class=cl><span class=o>(</span>snip<span class=o>)</span>
+</span></span></code></pre></div><h3 id=traceより前の式の結果がfalseの場合>traceより前の式の結果がfalseの場合</h3><p>traceより前の式の結果がfalseだった場合は、式のあとのtraceは表示されない。<br>
+falseだった式より前のtraceのみが表示された。(ハイライト部分1つ目)<br>
+ルールもFailした(ハイライト部分2つ目)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>file: policy_trace_behavior/trace_test.rego <span class=p>|</span> query: test_trace_show_only_before
+</span></span><span class=line><span class=cl>TRAC   Enter data.main.test_trace_show_only_before <span class=o>=</span> _
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Eval data.main.test_trace_show_only_before <span class=o>=</span> _
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Index data.main.test_trace_show_only_before <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Enter data.main.test_trace_show_only_before
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Output trace message.&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;before&#34;</span><span class=o>}</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval data.main.deny_trace_message<span class=o>[</span>msg<span class=o>]</span> with input as json
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Index data.main.deny_trace_message <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Enter data.main.deny_trace_message
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>__local7__</span> <span class=o>=</span> input.foo
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval sprintf<span class=o>(</span><span class=s2>&#34;[Before expression] foo: %v&#34;</span>, <span class=o>[</span>__local7__<span class=o>]</span>, __local5__<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval trace<span class=o>(</span>__local5__<span class=o>)</span>
+</span></span><span class="line hl"><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Note <span class=s2>&#34;[Before expression] foo: before&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval input.foo <span class=o>=</span> <span class=s2>&#34;before &amp; after&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Fail input.foo <span class=o>=</span> <span class=s2>&#34;before &amp; after&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Redo trace<span class=o>(</span>__local5__<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Redo sprintf<span class=o>(</span><span class=s2>&#34;[Before expression] foo: %v&#34;</span>, <span class=o>[</span>__local7__<span class=o>]</span>, __local5__<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>__local7__</span> <span class=o>=</span> input.foo
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Fail data.main.deny_trace_message<span class=o>[</span>msg<span class=o>]</span> with input as json
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;before&#34;</span><span class=o>}</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Output trace message.&#34;</span>
+</span></span><span class="line hl"><span class=cl>TRAC   <span class=p>|</span> Fail data.main.test_trace_show_only_before <span class=o>=</span> _
+</span></span></code></pre></div><h2 id=例2trace内のsprintfで構文ミスした場合はルールがfailする>例2：trace内のsprintfで構文ミスした場合は、ルールがFailする。</h2><h3 id=ファイルと実行コマンド-1>ファイルと実行コマンド</h3><details>
+<summary>policy_trace_expression/trace.rego</summary>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>#</span> <span class=nx>sprintfの第二引数には</span><span class=p>[]</span><span class=nx>をつけない場合の例</span>
+</span></span><span class=line><span class=cl><span class=err>#</span> <span class=nx>traceの式の結果がfalseになるので</span><span class=err>、</span><span class=nx>ルールはFAIL</span> <span class=nx>になる</span><span class=err>。</span>
+</span></span><span class=line><span class=cl><span class=nx>deny_invalid_2nd_argument</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;[Invalid 2nd argument] foo: %v&#34;</span><span class=p>,</span> <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>  <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span> <span class=o>==</span> <span class=s>&#34;one&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Invalid 2nd argument&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>#</span> <span class=nx>sprintfの第二引数が存在しない場合の例</span>
+</span></span><span class=line><span class=cl><span class=err>#</span> <span class=nx>traceの式の結果がfalseになるので</span><span class=err>、</span><span class=nx>ルールはFAIL</span> <span class=nx>になる</span><span class=err>。</span>
+</span></span><span class=line><span class=cl><span class=nx>deny_not_exist_2nd_argument</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nf>trace</span><span class=p>(</span><span class=nf>sprintf</span><span class=p>(</span><span class=s>&#34;[Invalid 2nd argument] foo: %v&#34;</span><span class=p>,</span> <span class=p>[</span><span class=nx>input</span><span class=p>.</span><span class=nx>bar</span><span class=p>]))</span>
+</span></span><span class=line><span class=cl>  <span class=nx>input</span><span class=p>.</span><span class=nx>foo</span> <span class=o>==</span> <span class=s>&#34;one&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Not exist 2nd argument&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></details>
+<details>
+<summary>policy_trace_expression/trace_test.rego</summary>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>#</span> <span class=nx>FAIL</span>
+</span></span><span class=line><span class=cl><span class=nx>test_invalid_2nd_argument1</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Invalid 2nd argument&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>json</span> <span class=o>:=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=s>&#34;one&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=nx>deny_invalid_2nd_argument</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=nx>with</span> <span class=nx>input</span> <span class=nx>as</span> <span class=nx>json</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>#</span> <span class=nx>FAIL</span>
+</span></span><span class=line><span class=cl><span class=nx>test_not_exist_2nd_argument1</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>msg</span> <span class=o>:=</span> <span class=s>&#34;Not exist 2nd argument&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>json</span> <span class=o>:=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=s>&#34;one&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=nx>deny_not_exist_2nd_argument</span><span class=p>[</span><span class=nx>msg</span><span class=p>]</span> <span class=nx>with</span> <span class=nx>input</span> <span class=nx>as</span> <span class=nx>json</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></details>
+<pre tabindex=0><code>conftest verify --policy policy_trace_expression --trace
+</code></pre><h3 id=sprintfの第二引数にはをつけない場合の例>sprintfの第二引数には[]をつけない場合の例</h3><p>sprintfでFailし、ルールもFailした。(ハイライト部分)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>file: policy_trace_expression/trace_test.rego <span class=p>|</span> query: test_invalid_2nd_argument1
+</span></span><span class=line><span class=cl>TRAC   Enter data.main.test_invalid_2nd_argument1 <span class=o>=</span> _
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Eval data.main.test_invalid_2nd_argument1 <span class=o>=</span> _
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Index data.main.test_invalid_2nd_argument1 <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Enter data.main.test_invalid_2nd_argument1
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Invalid 2nd argument&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;one&#34;</span><span class=o>}</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval data.main.deny_invalid_2nd_argument<span class=o>[</span>msg<span class=o>]</span> with input as json
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Index data.main.deny_invalid_2nd_argument <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Enter data.main.deny_invalid_2nd_argument
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>__local14__</span> <span class=o>=</span> input.foo
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Eval sprintf<span class=o>(</span><span class=s2>&#34;[Invalid 2nd argument] foo: %v&#34;</span>, __local14__, __local12__<span class=o>)</span>
+</span></span><span class="line hl"><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Fail sprintf<span class=o>(</span><span class=s2>&#34;[Invalid 2nd argument] foo: %v&#34;</span>, __local14__, __local12__<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>__local14__</span> <span class=o>=</span> input.foo
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Fail data.main.deny_invalid_2nd_argument<span class=o>[</span>msg<span class=o>]</span> with input as json
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;one&#34;</span><span class=o>}</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Invalid 2nd argument&#34;</span>
+</span></span><span class="line hl"><span class=cl>TRAC   <span class=p>|</span> Fail data.main.test_invalid_2nd_argument1 <span class=o>=</span> _
+</span></span></code></pre></div><h3 id=sprintfの第二引数が存在しない場合の例>sprintfの第二引数が存在しない場合の例</h3><p>jsonaの読み込みあたりでFailし、ルールもFailした。(ハイライト部分)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>file: policy_trace_expression/trace_test.rego <span class=p>|</span> query: test_not_exist_2nd_argument1
+</span></span><span class=line><span class=cl>TRAC   Enter data.main.test_not_exist_2nd_argument1 <span class=o>=</span> _
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Eval data.main.test_not_exist_2nd_argument1 <span class=o>=</span> _
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Index data.main.test_not_exist_2nd_argument1 <span class=o>(</span>matched <span class=m>1</span> rule<span class=o>)</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> Enter data.main.test_not_exist_2nd_argument1
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Not exist 2nd argument&#34;</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;one&#34;</span><span class=o>}</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Eval data.main.deny_not_exist_2nd_argument<span class=o>[</span>msg<span class=o>]</span> with input as json
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Index data.main.deny_not_exist_2nd_argument matched <span class=m>0</span> rules<span class=o>)</span>
+</span></span><span class="line hl"><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Fail data.main.deny_not_exist_2nd_argument<span class=o>[</span>msg<span class=o>]</span> with input as json
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>json</span> <span class=o>=</span> <span class=o>{</span><span class=s2>&#34;foo&#34;</span>: <span class=s2>&#34;one&#34;</span><span class=o>}</span>
+</span></span><span class=line><span class=cl>TRAC   <span class=p>|</span> <span class=p>|</span> Redo <span class=nv>msg</span> <span class=o>=</span> <span class=s2>&#34;Not exist 2nd argument&#34;</span>
+</span></span><span class="line hl"><span class=cl>TRAC   <span class=p>|</span> Fail data.main.test_not_exist_2nd_argument1 <span class=o>=</span> _
+</span></span></code></pre></div><h1 id=最後に>最後に</h1><p>ここまでの記載の通り、traceは式の1つとして動作するため、traceの成否がルールの成否にも関わってくる。<br>
+個人的にはtraceはルールの成否にかかわらずデバッグプリントとしてのみ動作して欲しいが、そのような動作ではないので、<br>
+traceの挙動を理解した上でのデバッグプリントが必要である。</p></section><footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/conftest/>Conftest</a>
+</section><section class=article-lastmod><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>
+最終更新 Jul 25, 2021 18:21 JST
+</span>
+</section></footer></article><footer class=site-footer>
+<section class=copyright>
+&copy;
 2021 -
-2022 volanja Pages</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.0.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2022 volanja Pages
+</section><section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.10.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div><div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目次</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#trace-の使い方>trace の使い方</a><ol><li><a href=#コード>コード</a></li><li><a href=#実行方法>実行方法</a></li></ol></li><li><a href=#traceの注意点>traceの注意点</a><ol><li><a href=#おさらい>おさらい</a></li><li><a href=#注意点>注意点</a></li></ol></li><li><a href=#注意点の例>注意点の例</a><ol><li><a href=#例1traceより前の式の結果でtraceの出力有無が変わる>例1：traceより前の式の結果でtraceの出力有無が変わる</a><ol><li><a href=#ファイルと実行コマンド>ファイルと実行コマンド</a></li><li><a href=#traceより前の式の結果がtrueの場合>traceより前の式の結果がtrueの場合</a></li><li><a href=#traceより前の式の結果がfalseの場合>traceより前の式の結果がfalseの場合</a></li></ol></li><li><a href=#例2trace内のsprintfで構文ミスした場合はルールがfailする>例2：trace内のsprintfで構文ミスした場合は、ルールがFailする。</a><ol><li><a href=#ファイルと実行コマンド-1>ファイルと実行コマンド</a></li><li><a href=#sprintfの第二引数にはをつけない場合の例>sprintfの第二引数には[]をつけない場合の例</a></li><li><a href=#sprintfの第二引数が存在しない場合の例>sprintfの第二引数が存在しない場合の例</a></li></ol></li></ol></li><li><a href=#最後に>最後に</a></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script>
+</body></html>
