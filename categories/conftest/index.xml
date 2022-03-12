@@ -9,7 +9,10 @@
 &lt;p>ConftestのRego言語ではデバッグのためにtraceをコード内に埋め込み、表示させることができる。&lt;br>
 &lt;a class="link" href="https://www.openpolicyagent.org/docs/latest/policy-reference/#debugging" target="_blank" rel="noopener"
 >OpenPolicyAgent - Policy Reference - Built-in Functions - Debugging&lt;/a>&lt;/p>
-&lt;h2 id="コード">コード&lt;/h2>
+&lt;h1 id="環境">環境&lt;/h1>
+&lt;pre tabindex="0">&lt;code>conftest v0.24.0
+opa v0.30.2
+&lt;/code>&lt;/pre>&lt;h2 id="コード">コード&lt;/h2>
 &lt;p>traceで文字列を表示させる場合は引数として文字列を渡す。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="nf">trace&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>変数を埋め込みたい場合は&lt;code>sprintf&lt;/code>を使う。&lt;/p>
