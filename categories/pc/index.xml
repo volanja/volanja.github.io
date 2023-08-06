@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PC on volanja Pages</title><link>https://volanja.github.io/categories/pc/</link><description>Recent content in PC on volanja Pages</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 06 Aug 2023 14:00:00 +0900</lastBuildDate><atom:link href="https://volanja.github.io/categories/pc/index.xml" rel="self" type="application/rss+xml"/><item><title>デスクトップPCを新調した</title><link>https://volanja.github.io/p/new_hw_terra/</link><pubDate>Sun, 06 Aug 2023 14:00:00 +0900</pubDate><guid>https://volanja.github.io/p/new_hw_terra/</guid><description>&lt;img src="https://volanja.github.io/p/new_hw_terra/Terra_FractalDesign.png" alt="Featured image of post デスクトップPCを新調した" />&lt;blockquote>
+&lt;p>Photo by &lt;a class="link" href="https://www.fractal-design.com/products/cases/terra/terra/terra-silver/" target="_blank" rel="noopener"
+>Fractal Design Terra&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>約10年ぶりにデスクトップPCを新調した。&lt;br>
+前回はATXの大きなタワーだったけど、&lt;a class="link" href="https://text.sanographix.net/entry/sff-gaming-pc" target="_blank" rel="noopener"
+>小型のゲーミングPCを自作すると楽しいし、数年前の常識が通用しない&lt;/a>の影響で&lt;br>
+小さいケースに憧れがあったので、今回はMini-ITXケースにチャレンジした。&lt;/p>
+&lt;p>リビングに置くので、&lt;/p>
+&lt;ul>
+&lt;li>小ささ&lt;/li>
+&lt;li>静音性の高さ&lt;/li>
+&lt;li>ごついACアダプタがないこと&lt;/li>
+&lt;/ul>
+&lt;p>を重視した。&lt;br>
+また、VMware ESXiを入れるので、CPUとメモリは多めにした。(CPU:12コア24スレッド, メモリ:64GB)&lt;/p>
+&lt;h1 id="構成">構成&lt;/h1>
+&lt;p>最終的な構成はこんな感じで、20万円をオーバーした。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">項目&lt;/th>
+&lt;th style="text-align:left">メーカ&lt;/th>
+&lt;th style="text-align:left">品名&lt;/th>
+&lt;th style="text-align:right">価格&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">ケース&lt;/td>
+&lt;td style="text-align:left">Fractal Design&lt;/td>
+&lt;td style="text-align:left">Terra Silver&lt;/td>
+&lt;td style="text-align:right">￥37,400&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">CPU&lt;/td>
+&lt;td style="text-align:left">AMD&lt;/td>
+&lt;td style="text-align:left">Ryzen 9 7900 (12C/24T, 3.7GHz, AMD Radeon Graphics, TDP 65W)&lt;/td>
+&lt;td style="text-align:right">￥65,920&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">CPUファン&lt;/td>
+&lt;td style="text-align:left">Noctua&lt;/td>
+&lt;td style="text-align:left">NH-L9x65&lt;/td>
+&lt;td style="text-align:right">￥9,180&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">マザーボード&lt;/td>
+&lt;td style="text-align:left">ASUS&lt;/td>
+&lt;td style="text-align:left">ROG STRIX B650E-I GAMING WIFI (Intel NIC)&lt;/td>
+&lt;td style="text-align:right">￥42,799&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">メモリ&lt;/td>
+&lt;td style="text-align:left">Crucial&lt;/td>
+&lt;td style="text-align:left">DDR5-4800 CT32G48C40U5 32GB x2枚(計64GB)&lt;/td>
+&lt;td style="text-align:right">￥25,960&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">SSD&lt;/td>
+&lt;td style="text-align:left">Western Digital&lt;/td>
+&lt;td style="text-align:left">WD Black SN770 NVMe WDS100T3X0E-EC 1TB&lt;/td>
+&lt;td style="text-align:right">￥9,462&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">電源&lt;/td>
+&lt;td style="text-align:left">ASUS&lt;/td>
+&lt;td style="text-align:left">ROG-LOKI-750P-SFX-L-GAMING&lt;/td>
+&lt;td style="text-align:right">￥32,780&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">セット値引き&lt;/td>
+&lt;td style="text-align:left">-&lt;/td>
+&lt;td style="text-align:left">アーク AMD Ryzen 7000シリーズ×ASUS製Socket AM5マザーボード キャンペーン&lt;/td>
+&lt;td style="text-align:right">￥-11,150&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;/td>
+&lt;td style="text-align:left">&lt;/td>
+&lt;td style="text-align:left">&lt;/td>
+&lt;td style="text-align:right">￥212,351&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>SSDはプライムセールで購入し、それ以外は&lt;a class="link" href="https://www.ark-pc.co.jp" target="_blank" rel="noopener"
+>アーク&lt;/a>で購入した。(23/06/23 ネット注文、23/06/24 配達@ヤマト運輸)&lt;/p>
+&lt;h1 id="事前に検討したところ">事前に検討したところ&lt;/h1>
+&lt;ul>
+&lt;li>ケース
+&lt;ul>
+&lt;li>影響を受けた記事の&lt;a class="link" href="https://www.coolermaster.com/jp/ja-jp/catalog/cases/mini-itx/masterbox-nr200/" target="_blank" rel="noopener"
+>NR200&lt;/a>よりも小さい&lt;a class="link" href="https://lian-li.com/ja/BOX/%e3%81%824h2o/" target="_blank" rel="noopener"
+>Lian LiのA4-H2O&lt;/a>を今年の初めに注文したが、2ヶ月経っても納品されなかったのでキャンセルした。&lt;/li>
+&lt;li>6月にFractal Designから&lt;a class="link" href="https://www.fractal-design.com/products/cases/terra/terra/terra-jade/" target="_blank" rel="noopener"
+>Terra&lt;/a>が発売された。&lt;a class="link" href="https://www.gdm.or.jp/review/2023/0614/489191" target="_blank" rel="noopener"
+>これで全てが分かる。Fractal Design「Terra」徹底解説&lt;/a>を見て良さそうだったので決めた。&lt;/li>
+&lt;li>ケースの大きさは&lt;a class="link" href="https://comparesizes.com/comparison/terra-vs-A4H2O-vs-NR200/1691295712462" target="_blank" rel="noopener"
+>このサイト&lt;/a>で比較した。&lt;/li>
+&lt;li>NR200(約9K)やA4-H2O(約26K,PCIe4)よりも価格はだいぶ高いけど満足度は高いのでヨシ&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CPU
+&lt;ul>
+&lt;li>はじめは前世代のRyzen 5700G(6C/12T)を検討していた。&lt;/li>
+&lt;li>AM5マザーやDDR5メモリも徐々に価格が下がってきていて、せっかくなのでコアが多く消費電力が低い Ryzen7900(12C/24T)にした。&lt;/li>
+&lt;li>アークで1万円引きのセールをやっていたのもちょうど良かった。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CPUファン
+&lt;ul>
+&lt;li>Mini-ITXケースなので、高さが低いファンが必要だった。&lt;/li>
+&lt;li>Terraは内部フレームを７段階で移動でき、CPUファンの高さは最大77mmに設定できる(グラフィックカードなしの場合)&lt;/li>
+&lt;li>静音性も重視して&lt;a class="link" href="https://noctua.at/en/nh-l9x65" target="_blank" rel="noopener"
+>Noctua NH-L9x65&lt;/a>(全高65mm)にした。&lt;a class="link" href="https://www.gdm.or.jp/review/2015/0409/109373" target="_blank" rel="noopener"
+>レビュー記事:Noctua「NH-L9x65」検証&lt;/a>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://noctua.at/en/nh-l12s" target="_blank" rel="noopener"
+>Noctua NH-L12S&lt;/a>も検討したが、&lt;a class="link" href="https://ncc.noctua.at/coolers/NH-L12S-17/motherboards/ASUS/AM5?q=B650E-I" target="_blank" rel="noopener"
+>マザーボードと干渉してNGだった。(fan on top(全高85mm)のみ)&lt;/a>&lt;/li>
+&lt;li>マザボやメモリとのクリアランスはNoctuaサイトで確認した。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>マザーボード
+&lt;ul>
+&lt;li>ESXiと互換性のあるIntel NIC(I225-V)があることを重視して選んだ。(USB NIC にしたくなかった)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>メモリ
+&lt;ul>
+&lt;li>マザーボードと&lt;a class="link" href="https://rog.asus.com/jp/motherboards/rog-strix/rog-strix-b650e-i-gaming-wifi-model/helpdesk_qvl_memory/" target="_blank" rel="noopener"
+>互換性のあるメモリ&lt;/a>を選んだ。光ったりしなくてよいので、シンプルなもの。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SSD
+&lt;ul>
+&lt;li>はじめは家にあったSATA SSDにESXiをインストールした。&lt;/li>
+&lt;li>Amazonのプライムセールで安く買えたNVMe SSDにESXiをインストールできたので、SATA SSDを外してNVMe SSDのみにした。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>電源
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://hwbusters.com/best_picks/the-quietest-psu-picks-hardware-busters/" target="_blank" rel="noopener"
+>The Quietest PSU Picks – Hardware Busters&lt;/a>を参考に静音性の高さから選んだ。&lt;/li>
+&lt;li>容量は異なるが、&lt;a class="link" href="https://www.gdm.or.jp/review/2023/0417/484304" target="_blank" rel="noopener"
+>手のひらサイズの妥協なきゲーミングPLATINUM電源、ASUS「ROG LOKI SFX-L 1000W Platinum」検証&lt;/a>も参考にした。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>グラフィックカード
+&lt;ul>
+&lt;li>なし。ESXiで使う予定もなくCPUの内蔵グラフィックスで十分なため。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ケースファン
+&lt;ul>
+&lt;li>なし。SFX-L電源ではスペースがないため。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="組み立て">組み立て&lt;/h1>
+&lt;h2 id="良かったところ">良かったところ&lt;/h2>
+&lt;ul>
+&lt;li>ケースの側面と上面が取り外しできるので、組み込みには特に困らなかった。
+&lt;ul>
+&lt;li>しいて言えば、電源周りのケーブル取り回しで少し悩んだので、下面も取り外せると良かった。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="困ったところ">困ったところ&lt;/h2>
+&lt;p>組み立て後に、ESXiを起動すると、マザーボードがコイル鳴きした。(UEFI画面ではコイル鳴きしない)&lt;br>
+レビュー(&lt;a class="link" href="https://rog-forum.asus.com/t5/previous-forum/fix-to-coilwhine-on-maximus-hero-xiii/td-p/816606" target="_blank" rel="noopener"
+>価格.com&lt;/a>, &lt;a class="link" href="https://rog-forum.asus.com/t5/previous-forum/fix-to-coilwhine-on-maximus-hero-xiii/td-p/816606" target="_blank" rel="noopener"
+>ASUS Forum&lt;/a>)によると、C Stateあたりの電力制御が原因だったようす。&lt;br>
+そこで、UEFIのAi TweakerページのCore Performance Boost を自動から無効に変更すると、コイル鳴きのノイズが無くなった。&lt;br>
+(もともと静音性を重視していたので、解決しなければマザーボード選びからやり直すところだった。)&lt;/p>
+&lt;h1 id="uefiの設定">UEFIの設定&lt;/h1>
+&lt;p>ESXiに不要なWi-Fiなどは一通りオフにした。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">項目&lt;/th>
+&lt;th style="text-align:left">デフォルト&lt;/th>
+&lt;th style="text-align:left">変更後の設定&lt;/th>
+&lt;th style="text-align:left">理由&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">Core Performance Boost&lt;/td>
+&lt;td style="text-align:left">自動&lt;/td>
+&lt;td style="text-align:left">無効&lt;/td>
+&lt;td style="text-align:left">コイル鳴きの防止&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">ファームウェアTPM&lt;/td>
+&lt;td style="text-align:left">PSPファームウェアTPM&lt;/td>
+&lt;td style="text-align:left">ファームウェアTPMを無効&lt;/td>
+&lt;td style="text-align:left">ESXiでTPMの検証をしないため&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">USBオーディオ コントローラー&lt;/td>
+&lt;td style="text-align:left">有効&lt;/td>
+&lt;td style="text-align:left">無効&lt;/td>
+&lt;td style="text-align:left">ESXiで使用しない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Wi-Fi コントローラー&lt;/td>
+&lt;td style="text-align:left">有効&lt;/td>
+&lt;td style="text-align:left">無効&lt;/td>
+&lt;td style="text-align:left">ESXiで使用しない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Bluetooth コントローラー&lt;/td>
+&lt;td style="text-align:left">有効&lt;/td>
+&lt;td style="text-align:left">無効&lt;/td>
+&lt;td style="text-align:left">ESXiで使用しない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">システム動作中のLED設定&lt;/td>
+&lt;td style="text-align:left">すべてオン&lt;/td>
+&lt;td style="text-align:left">ステルスモード&lt;/td>
+&lt;td style="text-align:left">リビングに置くので目立たないでほしい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">プライマリビデオデバイス&lt;/td>
+&lt;td style="text-align:left">PCIE グラフィックスカード&lt;/td>
+&lt;td style="text-align:left">IGFX 内蔵グラフィックス&lt;/td>
+&lt;td style="text-align:left">設定いらないと思うけど念の為&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">高速ブート　&lt;/td>
+&lt;td style="text-align:left">有効&lt;/td>
+&lt;td style="text-align:left">無効&lt;/td>
+&lt;td style="text-align:left">ESXiで使用しない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">セットアップモード&lt;/td>
+&lt;td style="text-align:left">EZモード&lt;/td>
+&lt;td style="text-align:left">アドバンストモード&lt;/td>
+&lt;td style="text-align:left">EZモードは設定に不向きのため&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
