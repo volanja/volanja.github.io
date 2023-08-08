@@ -1,0 +1,377 @@
+<!doctype html><html lang=en-us dir=ltr>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="TerraにESXiをインストールにあたって以下のサイトを参考にMacでカスタムイメージを作成した。
+Powershellが必要なので普通はWindowsで作成するが、この手順ではMacでも作成できた。
+参考にしたサイト：
+はじめよう、おうちクラウド 第3回
+PowerCLI13 で VMware.ImageBuilder がマルチプラットフォーム対応にしたので試してみる
+事前準備 Mac(MBP2018, macOS Venture 13.5)に以下のソフトウェアをインストールする。
+以降の操作はMacのterminalで実行する。
+ PowerShell python 3.7 パッケージ(six, psutil, lxml, pyopenssl)  まずbrewでPowerShellをインストールする。
+$ brew install --cask powershell 続いて、Python 3.7をインストールする。
+$ brew install python@3.7 最後にpipでパッケージをインストールする。
+$ python3.7 -m pip install six psutil lxml pyopenssl インストールしたパッケージのバージョン。
+$ python3.7 -m pip list Package Version ------------ ------- six 1.16.0 psutil 5.9.5 lxml 4.9.2 pyOpenSSL 23.2.0 ESXiのdepotファイルと、VMware Flingsからコミュニティドライバをダウンロードしておく。
+ここではすべて/tmp/VMware/フォルダに保存しておく。
+あとの作業でzipファイルはフルパスで指定する必要があるので、短いパスの方が入力が楽になる。
+ ESXi depotファイル  VMware-ESXi-8.">
+<title>MacでカスタムESXiイメージを作る</title><link rel=canonical href=https://volanja.github.io/p/vmw-esxi-custom-image-on-mac/>
+<link rel=stylesheet href=/scss/style.min.24aee2c1f83a73cf118528f6406e89a970c3c5ba3ea4da8799046f0ef82691a2.css><meta property="og:title" content="MacでカスタムESXiイメージを作る">
+<meta property="og:description" content="TerraにESXiをインストールにあたって以下のサイトを参考にMacでカスタムイメージを作成した。
+Powershellが必要なので普通はWindowsで作成するが、この手順ではMacでも作成できた。
+参考にしたサイト：
+はじめよう、おうちクラウド 第3回
+PowerCLI13 で VMware.ImageBuilder がマルチプラットフォーム対応にしたので試してみる
+事前準備 Mac(MBP2018, macOS Venture 13.5)に以下のソフトウェアをインストールする。
+以降の操作はMacのterminalで実行する。
+ PowerShell python 3.7 パッケージ(six, psutil, lxml, pyopenssl)  まずbrewでPowerShellをインストールする。
+$ brew install --cask powershell 続いて、Python 3.7をインストールする。
+$ brew install python@3.7 最後にpipでパッケージをインストールする。
+$ python3.7 -m pip install six psutil lxml pyopenssl インストールしたパッケージのバージョン。
+$ python3.7 -m pip list Package Version ------------ ------- six 1.16.0 psutil 5.9.5 lxml 4.9.2 pyOpenSSL 23.2.0 ESXiのdepotファイルと、VMware Flingsからコミュニティドライバをダウンロードしておく。
+ここではすべて/tmp/VMware/フォルダに保存しておく。
+あとの作業でzipファイルはフルパスで指定する必要があるので、短いパスの方が入力が楽になる。
+ ESXi depotファイル  VMware-ESXi-8.">
+<meta property="og:url" content="https://volanja.github.io/p/vmw-esxi-custom-image-on-mac/">
+<meta property="og:site_name" content="volanja Pages">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="VMware"><meta property="article:published_time" content="2023-08-08T22:30:00+09:00"><meta property="article:modified_time" content="2023-08-08T23:43:08+09:00">
+<meta name=twitter:site content="@volanja">
+<meta name=twitter:creator content="@volanja"><meta name=twitter:title content="MacでカスタムESXiイメージを作る">
+<meta name=twitter:description content="TerraにESXiをインストールにあたって以下のサイトを参考にMacでカスタムイメージを作成した。
+Powershellが必要なので普通はWindowsで作成するが、この手順ではMacでも作成できた。
+参考にしたサイト：
+はじめよう、おうちクラウド 第3回
+PowerCLI13 で VMware.ImageBuilder がマルチプラットフォーム対応にしたので試してみる
+事前準備 Mac(MBP2018, macOS Venture 13.5)に以下のソフトウェアをインストールする。
+以降の操作はMacのterminalで実行する。
+ PowerShell python 3.7 パッケージ(six, psutil, lxml, pyopenssl)  まずbrewでPowerShellをインストールする。
+$ brew install --cask powershell 続いて、Python 3.7をインストールする。
+$ brew install python@3.7 最後にpipでパッケージをインストールする。
+$ python3.7 -m pip install six psutil lxml pyopenssl インストールしたパッケージのバージョン。
+$ python3.7 -m pip list Package Version ------------ ------- six 1.16.0 psutil 5.9.5 lxml 4.9.2 pyOpenSSL 23.2.0 ESXiのdepotファイルと、VMware Flingsからコミュニティドライバをダウンロードしておく。
+ここではすべて/tmp/VMware/フォルダに保存しておく。
+あとの作業でzipファイルはフルパスで指定する必要があるので、短いパスの方が入力が楽になる。
+ ESXi depotファイル  VMware-ESXi-8.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JGEKG6MX6"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-5JGEKG6MX6",{anonymize_ip:!1})}</script>
+</head><body class=article-page>
+<script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"light")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=メニューを開く・閉じる>
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header>
+<figure class=site-avatar>
+<a href=/>
+<img src=/img/volanja_hu5ed768897f491ce4e7a0f018f8fd7dc1_51569_300x0_resize_q75_box.jpeg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a>
+</figure><div class=site-meta>
+<h1 class=site-name><a href=/>volanja Pages</a></h1><h2 class=site-description></h2></div></header><ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li><li>
+<a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li><li>
+<a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li><li>
+<a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span>
+</a>
+</li><div class=menu-bottom-section>
+<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>ダークモード</span>
+</li></div></ol></aside><aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div><h2 class="widget-title section-title">目次</h2><div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#事前準備>事前準備</a></li><li><a href=#esxiイメージの作成>ESXiイメージの作成</a>
+<ol>
+<li><a href=#powershellの立ち上げ>PowerShellの立ち上げ</a></li><li><a href=#ファイルの追加>ファイルの追加</a></li><li><a href=#カスタムイメージの作成>カスタムイメージの作成</a></li><li><a href=#エクスポート>エクスポート</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/vmware/>
+VMware
+</a>
+</header><div class=article-title-wrapper>
+<h2 class=article-title>
+<a href=/p/vmw-esxi-custom-image-on-mac/>MacでカスタムESXiイメージを作る</a>
+</h2></div><footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2023/08/08</time>
+</div></footer></div></header><section class=article-content>
+<p><a class=link href=https://volanja.github.io/p/new_hw_terra/ target=_blank rel=noopener>Terra</a>にESXiをインストールにあたって以下のサイトを参考にMacでカスタムイメージを作成した。<br>
+Powershellが必要なので普通はWindowsで作成するが、この手順ではMacでも作成できた。</p><p>参考にしたサイト：<br>
+<a class=link href=https://github.com/tuna-jp/ouchi-cloud/blob/main/vol3/02_esxi_custom_installer.md target=_blank rel=noopener>はじめよう、おうちクラウド 第3回</a><br>
+<a class=link href=https://vhoge.hateblo.jp/entry/2022/11/23/011930 target=_blank rel=noopener>PowerCLI13 で VMware.ImageBuilder がマルチプラットフォーム対応にしたので試してみる</a></p><h1 id=事前準備>事前準備</h1><p>Mac(MBP2018, macOS Venture 13.5)に以下のソフトウェアをインストールする。<br>
+以降の操作はMacのterminalで実行する。</p><ul>
+<li>PowerShell</li><li>python 3.7</li><li>パッケージ(six, psutil, lxml, pyopenssl)</li></ul><p>まず<a class=link href=https://brew.sh target=_blank rel=noopener>brew</a>でPowerShellをインストールする。</p><pre tabindex=0><code>$ brew install --cask powershell
+</code></pre><p>続いて、Python 3.7をインストールする。</p><pre tabindex=0><code>$ brew install python@3.7
+</code></pre><p>最後にpipでパッケージをインストールする。</p><pre tabindex=0><code>$ python3.7 -m pip install six psutil lxml pyopenssl
+</code></pre><p>インストールしたパッケージのバージョン。</p><pre tabindex=0><code>$ python3.7 -m pip list
+Package      Version
+------------ -------
+six          1.16.0
+psutil       5.9.5
+lxml         4.9.2
+pyOpenSSL    23.2.0
+</code></pre><p>ESXiのdepotファイルと、<a class=link href=https://flings.vmware.com target=_blank rel=noopener>VMware Flings</a>からコミュニティドライバをダウンロードしておく。<br>
+ここではすべて<code>/tmp/VMware/</code>フォルダに保存しておく。<br>
+あとの作業でzipファイルはフルパスで指定する必要があるので、短いパスの方が入力が楽になる。</p><ul>
+<li>ESXi depotファイル
+<ul>
+<li>VMware-ESXi-8.0U1-21495797-depot.zip</li></ul></li><li><a class=link href=https://flings.vmware.com/community-networking-driver-for-esxi target=_blank rel=noopener>NIC</a>
+<ul>
+<li>Net-Community-Driver_1.2.7.0-1vmw.700.1.0.15843807_19480755.zip</li></ul></li><li><a class=link href=https://flings.vmware.com/community-nvme-driver-for-esxi target=_blank rel=noopener>NVMe</a>
+<ul>
+<li>nvme-community-driver_1.0.1.0-3vmw.700.1.0.15843807-component-18902434.zip<br>
+deprecatedだけど、試しで追加した。</li></ul></li></ul><h1 id=esxiイメージの作成>ESXiイメージの作成</h1><h2 id=powershellの立ち上げ>PowerShellの立ち上げ</h2><p><code>pwsh</code>コマンドでPowerShellに入る。</p><pre tabindex=0><code>$ pwsh
+PowerShell 7.3.4
+
+PS /private/tmp/VMware&gt;
+</code></pre><p>作業用の<code>/tmp/VMware</code>フォルダに移動する。</p><pre tabindex=0><code>PS /private/tmp/VMware&gt; cd /tmp/VMware/
+</code></pre><h2 id=ファイルの追加>ファイルの追加</h2><p><code>Add-EsxSoftwareDepot</code>コマンドでESXiのdepotファイルを追加する。<br>
+ちなみにzipファイルはフルパスで指定する必要がある。相対パスだとエラーになる。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=nb>PS </span><span class=p>/</span><span class=n>tmp</span><span class=p>/</span><span class=n>VMware</span><span class=p>&gt;</span> <span class=nb>Add-EsxSoftwareDepot</span> <span class=p>/</span><span class=n>tmp</span><span class=p>/</span><span class=n>VMware</span><span class=p>/</span><span class=nb>VMware-ESXi</span><span class=p>-</span><span class=n>8</span><span class=p>.</span><span class=n>0U1</span><span class=p>-</span><span class=n>21495797-depot</span><span class=p>.</span><span class=n>zip</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Depot</span> <span class=n>Url</span>
+</span></span><span class=line><span class=cl><span class=p>---------</span>
+</span></span><span class=line><span class=cl><span class=n>zip</span><span class=err>:</span><span class=p>/</span><span class=n>tmp</span><span class=p>/</span><span class=n>VMware</span><span class=p>/</span><span class=nb>VMware-ESXi</span><span class=p>-</span><span class=n>8</span><span class=p>.</span><span class=n>0U1</span><span class=p>-</span><span class=n>21495797-depot</span><span class=p>.</span><span class=n>zip</span><span class=k>?</span><span class=n>index</span><span class=p>.</span><span class=n>xml</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>PS </span><span class=p>/</span><span class=n>tmp</span><span class=p>/</span><span class=n>VMware</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p><code>Add-EsxSoftwareDepot</code>コマンドで、NVMeのコミュニティドライバファイルを追加する。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=nb>PS </span><span class=p>/</span><span class=n>tmp</span><span class=p>/</span><span class=n>VMware</span><span class=p>&gt;</span> <span class=nb>Add-EsxSoftwareDepot</span> <span class=p>/</span><span class=n>tmp</span><span class=p>/</span><span class=n>VMware</span><span class=p>/</span><span class=nb>nvme-community</span><span class=n>-driver_1</span><span class=p>.</span><span class=n>0</span><span class=p>.</span><span class=n>1</span><span class=p>.</span><span class=n>0</span><span class=p>-</span><span class=n>3vmw</span><span class=p>.</span><span class=n>700</span><span class=p>.</span><span class=n>1</span><span class=p>.</span><span class=n>0</span><span class=p>.</span><span class=n>15843807-component</span><span class=p>-</span><span class=n>18902434</span><span class=p>.</span><span class=n>zip</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Depot</span> <span class=n>Url</span>
+</span></span><span class=line><span class=cl><span class=p>---------</span>
+</span></span><span class=line><span class=cl><span class=n>zip</span><span class=err>:</span><span class=p>/</span><span class=n>tmp</span><span class=p>/</span><span class=n>VMware</span><span class=p>/</span><span class=nb>nvme-community</span><span class=n>-driver_1</span><span class=p>.</span><span class=n>0</span><span class=p>.</span><span class=n>1</span><span class=p>.</span><span class=n>0</span><span class=p>-</span><span class=n>3vmw</span><span class=p>.</span><span class=n>700</span><span class=p>.</span><span class=n>1</span><span class=p>.</span><span class=n>0</span><span class=p>.</span><span class=n>15843807-component</span><span class=p>-</span><span class=n>18902434</span><span class=p>.</span><span class=n>zip</span><span class=k>?</span><span class=n>index</span><span class=p>.</span><span class=n>xml</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>PS </span><span class=p>/</span><span class=n>tmp</span><span class=p>/</span><span class=n>VMware</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p>同じ手順で、NICのコミュニティドライバファイルを追加する。</p><pre tabindex=0><code>PS /tmp/VMware&gt; Add-EsxSoftwareDepot /tmp/VMware/Net-Community-Driver_1.2.7.0-1vmw.700.1.0.15843807_19480755.zip
+
+Depot Url
+---------
+zip:/tmp/VMware/Net-Community-Driver_1.2.7.0-1vmw.700.1.0.15843807_19480755.zip?index.xml
+
+PS /tmp/VMware&gt;
+</code></pre><h2 id=カスタムイメージの作成>カスタムイメージの作成</h2><p><code>Get-EsxImageProfile</code>コマンドで、ESXiのプロファイルを表示する。</p><pre tabindex=0><code>PS /tmp/VMware&gt; Get-EsxImageProfile
+
+Name                           Vendor          Last Modified   Acceptance Level
+----                           ------          -------------   ----------------
+ESXi-8.0U1-21495797-no-tools   VMware, Inc.    2023/03/25 2:0… PartnerSupported
+ESXi-8.0U1-21495797-standard   VMware, Inc.    2023/04/18 0:0… PartnerSupported
+
+PS /tmp/VMware&gt;
+</code></pre><p>今回は、<code>ESXi-8.0U1-21495797-standard</code>をベースにカスタムイメージを作成する。<br>
+操作を簡単にするため変数を使用する。<br>
+変数$ipに、Get-EsxImageProfileの要素1番目を入れる。(0始まりなので２個目)</p><pre tabindex=0><code>PS /tmp/VMware&gt; $ip = (Get-EsxImageProfile)[1]
+</code></pre><p>変数$ipを表示してみる。</p><pre tabindex=0><code>PS /tmp/VMware&gt; $ip
+
+Name                           Vendor          Last Modified   Acceptance Level
+----                           ------          -------------   ----------------
+ESXi-8.0U1-21495797-standard   VMware, Inc.    2023/04/18 0:0… PartnerSupported
+
+PS /tmp/VMware&gt;
+</code></pre><p>変数$ip2に、クローンした$ipを入れる。名前とベンダー名、AcceptanceLevelを指定する。
+ここでは名前はHomeLab、ベンダー名はvolanja, AcceptanceLevelはCommunitySupportedにした。</p><pre tabindex=0><code>PS /tmp/VMware&gt; $ip2 = New-EsxImageProfile -CloneProfile $ip -Name HomeLab -Vendor volanja -AcceptanceLevel CommunitySupported
+</code></pre><p>イメージプロファイルの$ip2を表示してみる。</p><pre tabindex=0><code>PS /tmp/VMware&gt; $ip2
+
+Name                           Vendor          Last Modified   Acceptance Level
+----                           ------          -------------   ----------------
+HomeLab                        volanja         2023/08/06 22:… CommunitySupported
+
+PS /tmp/VMware&gt;
+</code></pre><p>イメージプロファイルの$ip2に、パッケージnvme-community,net-communityを追加する。</p><pre tabindex=0><code>PS /tmp/VMware&gt; Add-EsxSoftwarePackage -ImageProfile $ip2 -SoftwarePackage nvme-community,net-community
+
+Name                           Vendor          Last Modified   Acceptance Level
+----                           ------          -------------   ----------------
+HomeLab                        volanja         2023/08/06 22:… CommunitySupported
+
+PS /tmp/VMware&gt;
+</code></pre><p>この時点でのパッケージ一覧を表示する。</p><pre tabindex=0><code>PS /tmp/VMware&gt; Get-EsxSoftwarePackage | Sort-Object -Property Name | ft -AutoSize
+</code></pre><details>
+<summary>結果をクリックして表示</summary><div>
+<pre tabindex=0><code>Name                                Version                                 Vendor Creation Date  
+----                                -------                                 ------ -------------
+atlantic                            1.0.3.0-11vmw.801.0.0.21495797          VMW    2023/03/25 1:06:56  
+bcm-mpi3                            8.4.2.0.0.0-1vmw.801.0.0.21495797       VMW    2023/03/25 1:06:56  
+bfedac-esxio                        0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+bmcal                               8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:49
+bmcal-esxio                         8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:30
+bnxtnet                             223.0.0.0-1vmw.801.0.0.21495797         VMW    2023/03/25 1:06:57
+bnxtroce                            223.0.0.0-1vmw.801.0.0.21495797         VMW    2023/03/25 1:06:57
+brcmfcoe                            12.0.1500.3-4vmw.801.0.0.21495797       VMW    2023/03/25 1:06:56
+clusterstore                        8.0.1-0.0.21495797                      VMware 2023/03/25 1:08:13
+cndi-igc                            1.2.10.0-1vmw.801.0.0.21495797          VMW    2023/03/25 1:06:56
+cpu-microcode                       8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:00
+crx                                 8.0.1-0.0.21495797                      VMware 2023/03/25 1:08:13
+dwi2c                               0.1-7vmw.801.0.0.21495797               VMW    2023/03/25 1:06:56
+dwi2c-esxio                         0.1-7vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+elx-esx-libelxima.so                12.0.1200.0-6vmw.801.0.0.21495797       VMware 2023/03/25 1:07:49
+elxiscsi                            12.0.1200.0-11vmw.801.0.0.21495797      VMW    2023/03/25 1:06:56
+elxnet                              12.0.1250.0-8vmw.801.0.0.21495797       VMW    2023/03/25 1:06:56
+esx-base                            8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:29
+esx-dvfilter-generic-fastpath       8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:45
+esx-ui                              2.12.0-21482143                         VMware 2023/03/22 11:07:40
+esx-update                          8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:30
+esx-xserver                         8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:45
+esxio                               8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:30
+esxio-base                          8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:11
+esxio-combiner                      8.0.1-0.0.21495797                      VMware 2023/03/25 1:08:13
+esxio-combiner-esxio                8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:30
+esxio-dvfilter-generic-fastpath     8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:24
+esxio-update                        8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:11
+gc                                  8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:15
+gc-esxio                            8.0.1-0.0.21495797                      VMware 2023/03/25 1:06:55
+i40en                               1.11.3.5-1vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+iavmd                               3.0.0.1010-8vmw.801.0.0.21495797        VMW    2023/03/25 1:06:56
+icen                                1.5.1.21-1vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+igbn                                1.4.11.7-1vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+intelgpio                           0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:56
+ionic-en                            20.0.0-40vmw.801.0.0.21495797           VMW    2023/03/25 1:06:56
+ionic-en-esxio                      20.0.0-40vmw.801.0.0.21495797           VMW    2023/03/25 1:06:37
+irdman                              1.3.1.25-1vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+iser                                1.1.0.2-1vmw.801.0.0.21495797           VMW    2023/03/25 1:06:56
+ixgben                              1.7.1.40-1vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+loadesx                             8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:29
+loadesxio                           8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:11
+lpfc                                14.2.560.8-23vmw.801.0.0.21495797       VMW    2023/03/25 1:06:56
+lpnic                               11.4.62.0-1vmw.801.0.0.21495797         VMW    2023/03/25 1:06:56
+lsi-mr3                             7.724.03.00-1vmw.801.0.0.21495797       VMW    2023/03/25 1:06:56
+lsi-msgpt2                          20.00.06.00-4vmw.801.0.0.21495797       VMW    2023/03/25 1:06:56
+lsi-msgpt3                          17.00.13.00-2vmw.801.0.0.21495797       VMW    2023/03/25 1:06:56
+lsi-msgpt35                         26.00.00.00-3vmw.801.0.0.21495797       VMW    2023/03/25 1:06:56
+lsuv2-hpv2-hpsa-plugin              1.0.0-4vmw.801.0.0.21495797             VMware 2023/03/25 1:07:49
+lsuv2-intelv2-nvme-vmd-plugin       2.7.2173-2vmw.801.0.0.21495797          VMware 2023/03/25 1:07:49
+lsuv2-lsiv2-drivers-plugin          1.0.2-1vmw.801.0.0.21495797             VMware 2023/03/25 1:07:49
+lsuv2-nvme-pcie-plugin              1.0.0-1vmw.801.0.0.21495797             VMware 2023/03/25 1:07:49
+lsuv2-oem-dell-plugin               1.0.0-2vmw.801.0.0.21495797             VMware 2023/03/25 1:07:49
+lsuv2-oem-lenovo-plugin             1.0.0-2vmw.801.0.0.21495797             VMware 2023/03/25 1:07:49
+lsuv2-smartpqiv2-plugin             1.0.0-10vmw.801.0.0.21495797            VMware 2023/03/25 1:07:49
+mlnx-bfbootctl-esxio                0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+mnet-esxio                          0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+mtip32xx-native                     3.9.8-1vmw.801.0.0.21495797             VMW    2023/03/25 1:06:56
+native-misc-drivers                 8.0.1-0.0.21495797                      VMware 2023/03/25 1:07:00
+native-misc-drivers-esxio           8.0.1-0.0.21495797                      VMware 2023/03/25 1:06:42
+ne1000                              0.9.0-2vmw.801.0.0.21495797             VMW    2023/03/25 1:06:57
+nenic                               1.0.35.0-5vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+net-community  //追加               1.2.7.0-1vmw.700.1.0.15843807           VMW    2022/03/10 21:21:26
+nfnic                               5.0.0.35-4vmw.801.0.0.21495797          VMW    2023/03/25 1:06:56
+nhpsa                               70.0051.0.100-4vmw.801.0.0.21495797     VMW    2023/03/25 1:06:56
+nmlx5-core                          4.23.0.36-14vmw.801.0.0.21495797        VMW    2023/03/25 1:06:56
+nmlx5-core-esxio                    4.23.0.36-14vmw.801.0.0.21495797        VMW    2023/03/25 1:06:37
+nmlx5-rdma                          4.23.0.36-14vmw.801.0.0.21495797        VMW    2023/03/25 1:06:56
+nmlx5-rdma-esxio                    4.23.0.36-14vmw.801.0.0.21495797        VMW    2023/03/25 1:06:37
+nmlxbf-gige-esxio                   2.2-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:37
+nmlxbf-pmc-esxio                    0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+ntg3                                4.1.10.0-4vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+nvme-community //追加               1.0.1.0-3vmw.700.1.0.15843807           VMW    2020/01/08 12:04:19
+nvme-pcie                           1.2.4.7-1vmw.801.0.0.21495797           VMW    2023/03/25 1:06:56
+nvme-pcie-esxio                     1.2.4.7-1vmw.801.0.0.21495797           VMW    2023/03/25 1:06:38
+nvmerdma                            1.0.3.9-1vmw.801.0.0.21495797           VMW    2023/03/25 1:06:57
+nvmetcp                             1.0.1.7-1vmw.801.0.0.21495797           VMW    2023/03/25 1:06:57
+nvmxnet3                            2.0.0.31-2vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+nvmxnet3-ens                        2.0.0.23-2vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+nvmxnet3-ens-esxio                  2.0.0.23-2vmw.801.0.0.21495797          VMW    2023/03/25 1:06:38
+nvmxnet3-esxio                      2.0.0.31-2vmw.801.0.0.21495797          VMW    2023/03/25 1:06:38
+penedac-esxio                       0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+pengpio-esxio                       0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+pensandoatlas                       1.46.0.E.28.1.303-2vmw.800.1.0.20796881 VMW    2022/11/15 18:28:45
+penspi-esxio                        0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+pvscsi                              0.1-5vmw.801.0.0.21495797               VMW    2023/03/25 1:06:56
+pvscsi-esxio                        0.1-5vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+qcnic                               1.0.15.0-22vmw.801.0.0.21495797         VMW    2023/03/25 1:06:57
+qedentv                             3.40.5.70-7vmw.801.0.0.21495797         VMW    2023/03/25 1:06:56
+qedrntv                             3.40.5.70-3vmw.801.0.0.21495797         VMW    2023/03/25 1:06:56
+qfle3                               1.0.67.0-32vmw.801.0.0.21495797         VMW    2023/03/25 1:06:57
+qfle3f                              1.0.51.0-32vmw.801.0.0.21495797         VMW    2023/03/25 1:06:56
+qfle3i                              1.0.15.0-20vmw.801.0.0.21495797         VMW    2023/03/25 1:06:56
+qflge                               1.1.0.11-1vmw.801.0.0.21495797          VMW    2023/03/25 1:06:57
+qlnativefc                          5.4.69.0-16vmw.801.0.0.21495797         VMware 2023/03/25 1:06:56
+rd1173-esxio                        0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+rdmahl                              1.0.0-1vmw.801.0.0.21495797             VMW    2023/03/25 1:06:57
+rste                                2.0.2.0088-7vmw.801.0.0.21495797        VMW    2023/03/25 1:06:56
+sfvmk                               2.4.0.2010-15vmw.801.0.0.21495797       VMW    2023/03/25 1:06:57
+smartpqi                            80.4385.0.200-1vmw.801.0.0.21495797     VMW    2023/03/25 1:06:56
+spidev-esxio                        0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:38
+tools-light                         12.2.0.21223074-21495797                VMware 2023/03/25 1:07:30
+trx                                 8.0.1-0.0.21495797                      VMware 2023/03/25 1:08:13
+vdfs                                8.0.1-0.0.21495797                      VMware 2023/03/25 1:08:12
+vds-vsip                            8.0.1-0.0.21495797                      VMware 2023/03/25 1:08:13
+vmkata                              0.1-1vmw.801.0.0.21495797               VMW    2023/03/25 1:06:56
+vmksdhci                            1.0.3-3vmw.801.0.0.21495797             VMW    2023/03/25 1:06:57
+vmksdhci-esxio                      1.0.3-3vmw.801.0.0.21495797             VMW    2023/03/25 1:06:38
+vmkusb                              0.1-16vmw.801.0.0.21495797              VMW    2023/03/25 1:06:56
+vmkusb-esxio                        0.1-16vmw.801.0.0.21495797              VMW    2023/03/25 1:06:38
+vmw-ahci                            2.0.15-1vmw.801.0.0.21495797            VMW    2023/03/25 1:06:56
+vmware-esx-esxcli-nvme-plugin       1.2.0.52-1vmw.801.0.0.21495797          VMware 2023/03/25 1:07:46
+vmware-esx-esxcli-nvme-plugin-esxio 1.2.0.52-1vmw.801.0.0.21495797          VMware 2023/03/25 1:07:25
+vsan                                8.0.1-0.0.21495797                      VMware 2023/03/25 1:08:01
+vsanhealth                          8.0.1-0.0.21495797                      VMware 2023/03/25 1:08:12
+</code></pre></div></details>
+<h2 id=エクスポート>エクスポート</h2><p>最後に、イメージプロファイルの$ip2をisoイメージファイルにエクスポートする。</p><pre tabindex=0><code>PS /tmp/VMware&gt; Export-EsxImageProfile -ImageProfile $ip2 -FilePath Terra_8.0U1-21495797.iso -ExportToIso
+</code></pre><p>エクスポートしたisoファイルは<a class=link href=https://qiita.com/kapibarasensei/items/9fb81f0102f9ccc31559 target=_blank rel=noopener>Qiitaの記事</a>を参考にして、USBメモリに書き込む。</p></section><footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/vmware/>VMware</a>
+</section><section class=article-lastmod><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>
+最終更新 2023/08/08 23:43 JST
+</span>
+</section></footer></article><aside class=related-content--wrapper>
+<h2 class=section-title>関連するコンテンツ</h2><div class=related-content>
+<div class="flex article-list--tile">
+<article>
+<a href=/p/vmw-govc-got-info-from-esxi67u3/>
+<div class=article-details>
+<h2 class=article-title>govcでESXi 6.7u3から情報取得する。</h2></div></a>
+</article><article>
+<a href=/p/vmw-govc-got-info-from-vcsim/>
+<div class=article-details>
+<h2 class=article-title>govcでvcsimから情報取得する。</h2></div></a>
+</article><article>
+<a href=/p/vmw-starting-govc/>
+<div class=article-details>
+<h2 class=article-title>govcの始め方</h2></div></a>
+</article><article>
+<a href=/p/vmw-starting-vcsim/>
+<div class=article-details>
+<h2 class=article-title>vcsimの始め方</h2></div></a>
+</article></div></div></aside><footer class=site-footer>
+<section class=copyright>
+&copy;
+2021 -
+2023 volanja Pages
+</section><section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+テーマ <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.17.0>Stack</a></b> は <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> によって設計されています。
+</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div><div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous>
+</main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script>
+</body></html>
